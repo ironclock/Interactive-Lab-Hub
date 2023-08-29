@@ -3,10 +3,15 @@
 # Staging Interaction
 
 **COLLABORATORS:**
+
 **Shai Aarons (sla88)**
+
 **Ariana Bhigroog (ab2959)**
+
 **Jon Caceres (jc3569)**
+
 **Rachel Minkowitz (rhm256)**
+
 **Amando Xu (ax45)**
 
 In the original stage production of Peter Pan, Tinker Bell was represented by a darting light created by a small handheld mirror off-stage, reflecting a little circle of light from a powerful lamp. Tinkerbell communicates her presence through this light to the other characters. See more info [here](https://en.wikipedia.org/wiki/Tinker_Bell). 
@@ -161,7 +166,7 @@ Think about the setting of the device: is the environment a place where the devi
 
 \*\***What concerns or opportunitities are influencing the way you've designed the device to look?**\*\*
 
-In our first rendition of the device we thought to create a 'mini desktop oven' that people can look at if they're waiting on something in the oven while working at their desk. This device would be about the size of a tissue box (easily left on a desk) and it's 'window' would be the changing light display. This device is optimal for those that spend lots of time at their desks and want a trendy, functional addition to their desktop setting. Since the setting of a desktop could be both a light and dim setting (when the room light is shut off) the display would react to the external lightsource and brighten/dim accordingly.
+In our first rendition of the device we thought to create a 'mini desktop oven' that people can look at if they're waiting on something in the oven while working at their desk. This device would be about the size of a tissue box (easily left on a desk) and its 'window' would be the changing light display. This device is optimal for those that spend lots of time at their desks and want a trendy, functional addition to their desktop setting. Since the setting of a desktop could be both a light and dim setting (when the room light is shut off) the display would react to the external lightsource and brighten/dim accordingly.
 
 While we were sketching out the mini desktop oven the idea that someone might not be tied to their desks came up. So we decided to go with a wearable device as well. Creating a wearable mini oven would allow the user to walk around and travel while they wait on their food. We opted for an inconspicuous looking wristwatch which has oven components and who's face changes colors according to food readiness. This item would allow for a certain amount of flexibility when using and can prove functional to active people who often multitask. 
 
