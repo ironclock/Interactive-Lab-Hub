@@ -2,7 +2,12 @@
 
 # Staging Interaction
 
-**COLLABORATORS: Rachel Minkowitz, Shai Aarons, Jon Caceres, Ariana Bhigroog, Amando Xu**
+**COLLABORATORS:**
+**Shai Aarons (sla88)**
+**Ariana Bhigroog (ab2959)**
+**Jon Caceres (jc3569)**
+**Rachel Minkowitz (rhm256)**
+**Amando Xu (ax45)**
 
 In the original stage production of Peter Pan, Tinker Bell was represented by a darting light created by a small handheld mirror off-stage, reflecting a little circle of light from a powerful lamp. Tinkerbell communicates her presence through this light to the other characters. See more info [here](https://en.wikipedia.org/wiki/Tinker_Bell). 
 
@@ -74,9 +79,9 @@ The interactive device can be anything *except* a computer, a tablet computer or
 \*\***Describe your setting, players, activity and goals here.**\*\*
 
 _Setting:_ The kitchen and any other room a person decides to go into from the kitchen - possibly a bedroom or home office. This device is used while things are cooking or baking in a oven. <br><br>
-_Players:_ The user, the oven, the food, potentially other people in the room <br><br>
-_Activity:_ Rachel puts her cake in the oven, she starts a timer for 30 minutes and then walks away into another room to do homework. She can monitor the progress of the baking cake by just looking at the display on her mini desktop oven sitting next to her in her room. When the oven timer starts the display is red, when the timer is halfway through the display is yellow and when the cake is officially ready, the display turns green and Rachel knows to head back to the kitchen. The cake is cooked perfectly! <br><br>
-_Goals:_ Rachel's goal is to make a perfectly cooked cake - not too raw but not overdone, the goal of the mini oven is to keep track of timing to know when to food is finished cooking/baking without Rachel having to physically move to the oven.
+_Players:_ The user, the oven, the food, potentially other people in the room.<br><br>
+_Activity:_ Rachel puts her cake in the oven, she starts a timer for 30 minutes and then walks away into another room to do homework. She can monitor the progress of the baking cake by just looking at the display on her mini desktop oven sitting next to her in her room. When the oven timer starts, the display is red, when the timer is halfway through the display is yellow and when the timer is up, the display turns green and Rachel knows to head back to the kitchen. The cake is baked perfectly.<br><br>
+_Goals:_ Rachel's goal is to make a perfectly baked cake - not underbaked but not overdone. The goal of the mini oven is to keep track of timing to know when to food is finished baking without Rachel having to physically move to the oven.
 
 Storyboards are a tool for visually exploring a users interaction with a device. They are a fast and cheap method to understand user flow, and iterate on a design before attempting to build on it. Take some time to read through this explanation of [storyboarding in UX design](https://www.smashingmagazine.com/2017/10/storyboarding-ux-design/). Sketch seven storyboards of the interactions you are planning. **It does not need to be perfect**, but must get across the behavior of the interactive device and the other characters in the scene. 
 
@@ -84,14 +89,14 @@ Storyboards are a tool for visually exploring a users interaction with a device.
 
 ![storyboardLab1](https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/0ec6e1f9-5d0a-43aa-8689-99b8e9281134)
 
-**this storyboard was made using Dall-E and Jon Caceres's amazing Photoshop skills
+**This storyboard was made using Dall-E and Jon Caceres's amazing Photoshop skills**
 
 Present your ideas to the other people in your breakout room (or in small groups). You can just get feedback from one another or you can work together on the other parts of the lab.
 
 \*\***Summarize feedback you got here.**\*\*
-- What about making some sort of reminder to go back to the oven if the food needs basting or rotation?
-- What happens if you're not paying attention to the screen??
-- This would be good for people who are hard of hearing - in case they dont hear timers, it requires very little attention to remember to go back to the oven
+- What about making some sort of reminder to go back to the oven if the food needs basting, rotating, or flipping?
+- What happens if you're not paying attention to the screen?
+- This would be good for people who are hard of hearing - in case they dont hear timers, it requires very little attention to remember to go back to the oven.
 
 ## Part B. Act out the Interaction
 
@@ -99,14 +104,14 @@ Try physically acting out the interaction you planned. For now, you can just pre
 
 \*\***Are there things that seemed better on paper than acted out?**\*\*
 
-- No one really has a wallclock and since wee're using our phones for tinkerbell, watching the time interferes with the color
-- Some of us don't set timers on our ovens and rather rely on external timers like a phone timer aka Siri.
-- Since the colors only represent an approximation there is no precise indication of how much time is remaining.
+- No one on the team has a wall clock and since we're using our phones for Tinkerbell, watching the time interferes with the color.
+- Some of us don't set timers on our ovens and would prefer to leverage timers on other devices, such as a smart phone.
+- Since the colors only represent an approximation there is no way to precisely indicate how much time is remaining.
 
 \*\***Are there new ideas that occur to you or your collaborators that come up from the acting?**\*\*
 
-- instead of using different colors for different amounts of time remaining, what about using a gradient which can change from a completely solid red window to a completely solid green window where the colors are transitioning from red to green in between - acting more like an ombre progress bar.
-- possibly creating a wearable device that can be worn around the house rather than sitting on a desk.
+- Instead of using different colors to reflect how much time is remaining, what about using a gradient which can change from a completely solid red window to a completely solid green window where the colors are transitioning from red to green in between - acting more like an gradient progress bar.
+- Possibly creating a wearable device that can be worn around the house rather than sitting on a desk.
 
 ## Part C. Prototype the device
 
@@ -171,11 +176,11 @@ Device 2: https://drive.google.com/file/d/1017qzEFg30s_2wL0-tQM1hHyCxsl8W4d/view
 Device 3: https://drive.google.com/file/d/17V8TnNVHrqO6JiQrg880nWhypTot08kd/view?usp=sharing
 
 \*\***Please indicate anyone you collaborated with on this Lab.**\*\* <br>
-The group as a whole did a great job collaborating on work and providing feedback in order to iterate through the design process smoothly. 
-Thank you to our great film creators - Jon, Adriana, and Shai! 
-Thank you Rachel for drawing the prototypes and Amando for making sure everything is inplace. 
+The group as a whole did a great job collaborating on work and providing feedback in order to iterate through the design process smoothly. The entire team met over Zoom for a 2 hour meeting and made wonderful progress.
+Thank you to our great film creators - Jon, Ariana, and Shai! 
+Thank you Rachel for drawing the prototypes and Amando for making sure everything is in place. 
 
-Thank you OpenAI for creating Dall-E which we used to create the storyboard (+Jon's Photoshop skills)
+Thank you OpenAI for creating Dall-E which we used to create the storyboard (+ Jon's Photoshop skills)
 
 # Staging Interaction, Part 2 
 
