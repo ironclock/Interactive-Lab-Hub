@@ -2,7 +2,7 @@
 
 # Staging Interaction
 
-\*\***NAME OF COLLABORATORS HERE**\*\*
+**COLLABORATORS: Rachel Minkowitz, Shai Aarons, Jon Caceres, Ariana Bhigroog, Amando Xu**
 
 In the original stage production of Peter Pan, Tinker Bell was represented by a darting light created by a small handheld mirror off-stage, reflecting a little circle of light from a powerful lamp. Tinkerbell communicates her presence through this light to the other characters. See more info [here](https://en.wikipedia.org/wiki/Tinker_Bell). 
 
@@ -73,14 +73,25 @@ The interactive device can be anything *except* a computer, a tablet computer or
 
 \*\***Describe your setting, players, activity and goals here.**\*\*
 
+_Setting:_ The kitchen and any other room a person decides to go into from the kitchen - possibly a bedroom or home office. This device is used while things are cooking or baking in a oven. <br><br>
+_Players:_ The user, the oven, the food, potentially other people in the room <br><br>
+_Activity:_ Rachel puts her cake in the oven, she starts a timer for 30 minutes and then walks away into another room to do homework. She can monitor the progress of the baking cake by just looking at the display on her mini desktop oven sitting next to her in her room. When the oven timer starts the display is red, when the timer is halfway through the display is yellow and when the cake is officially ready, the display turns green and Rachel knows to head back to the kitchen. The cake is cooked perfectly! <br><br>
+_Goals:_ Rachel's goal is to make a perfectly cooked cake - not too raw but not overdone, the goal of the mini oven is to keep track of timing to know when to food is finished cooking/baking without Rachel having to physically move to the oven.
+
 Storyboards are a tool for visually exploring a users interaction with a device. They are a fast and cheap method to understand user flow, and iterate on a design before attempting to build on it. Take some time to read through this explanation of [storyboarding in UX design](https://www.smashingmagazine.com/2017/10/storyboarding-ux-design/). Sketch seven storyboards of the interactions you are planning. **It does not need to be perfect**, but must get across the behavior of the interactive device and the other characters in the scene. 
 
 \*\***Include pictures of your storyboards here**\*\*
 
+![storyboardLab1](https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/0ec6e1f9-5d0a-43aa-8689-99b8e9281134)
+
+**this storyboard was made using Dall-E and Jon Caceres's amazing Photoshop skills
+
 Present your ideas to the other people in your breakout room (or in small groups). You can just get feedback from one another or you can work together on the other parts of the lab.
 
 \*\***Summarize feedback you got here.**\*\*
-
+- What about making some sort of reminder to go back to the oven if the food needs basting or rotation?
+- What happens if you're not paying attention to the screen??
+- This would be good for people who are hard of hearing - in case they dont hear timers, it requires very little attention to remember to go back to the oven
 
 ## Part B. Act out the Interaction
 
@@ -88,8 +99,14 @@ Try physically acting out the interaction you planned. For now, you can just pre
 
 \*\***Are there things that seemed better on paper than acted out?**\*\*
 
+- No one really has a wallclock and since wee're using our phones for tinkerbell, watching the time interferes with the color
+- Some of us don't set timers on our ovens and rather rely on external timers like a phone timer aka Siri.
+- Since the colors only represent an approximation there is no precise indication of how much time is remaining.
+
 \*\***Are there new ideas that occur to you or your collaborators that come up from the acting?**\*\*
 
+- instead of using different colors for different amounts of time remaining, what about using a gradient which can change from a completely solid red window to a completely solid green window where the colors are transitioning from red to green in between - acting more like an ombre progress bar.
+- possibly creating a wearable device that can be worn around the house rather than sitting on a desk.
 
 ## Part C. Prototype the device
 
@@ -103,16 +120,27 @@ If you run into technical issues with this tool, you can also use a light switch
 
 \*\***Give us feedback on Tinkerbelle.**\*\*
 
+Overall using Tinkerbelle was pretty smooth. When setting up on a Mac device some of us needed to include `--user` in order for the `requirements.txt` to properly install with Python3. Also, we opted to use local machines rather than virtual ones.
+
 
 ## Part D. Wizard the device
 Take a little time to set up the wizarding set-up that allows for someone to remotely control the device while someone acts with it. Hint: You can use Zoom to record videos, and you can pin someone’s video feed if that is the scene which you want to record. 
 
 \*\***Include your first attempts at recording the set-up video here.**\*\*
 
-Now, hange the goal within the same setting, and update the interaction with the paper prototype. 
+![zoom2tinkerbelle](https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/69657b4e-5134-4f0d-bdcc-860a609a6750)
+![zoom1tinkerbeller](https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/8fa7e9ae-a0d4-44ce-951d-e7d48db0e29c)
+
+Yay! Tinkerbeller works properly!
+
+Now, change the goal within the same setting, and update the interaction with the paper prototype. 
 
 \*\***Show the follow-up work here.**\*\*
 
+Our prototype changes color according to how much time is left in the oven - 
+- Red means not done
+- Yellow means halfway done
+- Green means ready to be eaten 
 
 ## Part E. Costume the device
 
@@ -122,17 +150,32 @@ Think about the setting of the device: is the environment a place where the devi
 
 \*\***Include sketches of what your devices might look like here.**\*\*
 
+![devices1 2-1](https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/c8e48d6e-aca1-4054-b483-39e411335845) <br>
+![device3-1](https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/543eed27-8421-43b1-9ae7-d3ca9a21ec87)
+
+
 \*\***What concerns or opportunitities are influencing the way you've designed the device to look?**\*\*
 
+In our first rendition of the device we thought to create a 'mini desktop oven' that people can look at if they're waiting on something in the oven while working at their desk. This device would be about the size of a tissue box (easily left on a desk) and it's 'window' would be the changing light display. This device is optimal for those that spend lots of time at their desks and want a trendy, functional addition to their desktop setting. Since the setting of a desktop could be both a light and dim setting (when the room light is shut off) the display would react to the external lightsource and brighten/dim accordingly.
+
+While we were sketching out the mini desktop oven the idea that someone might not be tied to their desks came up. So we decided to go with a wearable device as well. Creating a wearable mini oven would allow the user to walk around and travel while they wait on their food. We opted for an inconspicuous looking wristwatch which has oven components and who's face changes colors according to food readiness. This item would allow for a certain amount of flexibility when using and can prove functional to active people who often multitask. 
+
+The third design we went with is by far the most inconspicuous. We were thinking about people who live in small spaces, don't have a desk, or don't have room on their desk for a mini desktop oven. Our third design is a colored light that is integrated into a lamp. As with the other designs - the color of the light changes according to how ready the food is but this time the lamp is not a standalone device and turns into a lamp as long as their is nothing in the oven. This device lends to a clean asthetic, does not create clutter and looks like a regualar lamp when not in use.
 
 ## Part F. Record
 
 \*\***Take a video of your prototyped interaction.**\*\*
 
-\*\***Please indicate anyone you collaborated with on this Lab.**\*\*
-Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
+Device 1: https://drive.google.com/file/d/1W88U_tuE_rPT6T9hHkpZ3OsQbwEibb6V/view?usp=sharing <br>
+Device 2: https://drive.google.com/file/d/1017qzEFg30s_2wL0-tQM1hHyCxsl8W4d/view?usp=sharing <br>
+Device 3: https://drive.google.com/file/d/17V8TnNVHrqO6JiQrg880nWhypTot08kd/view?usp=sharing
 
+\*\***Please indicate anyone you collaborated with on this Lab.**\*\* <br>
+The group as a whole did a great job collaborating on work and providing feedback in order to iterate through the design process smoothly. 
+Thank you to our great film creators - Jon, Adriana, and Shai! 
+Thank you Rachel for drawing the prototypes and Amando for making sure everything is inplace. 
 
+Thank you OpenAI for creating Dall-E which we used to create the storyboard (+Jon's Photoshop skills)
 
 # Staging Interaction, Part 2 
 
