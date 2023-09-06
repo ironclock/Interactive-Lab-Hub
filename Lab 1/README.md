@@ -1,5 +1,4 @@
 
-
 # Staging Interaction
 
 **COLLABORATORS: Rachel Minkowitz(rhm256), Shai Aarons(sla88), Jon Caceres(jc3569), Ariana Bhigroog(ab2959), Amando Xu(ax45)**
