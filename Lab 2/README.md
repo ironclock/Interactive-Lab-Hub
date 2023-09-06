@@ -1,5 +1,16 @@
 # Interactive Prototyping: The Clock of Pi
-**NAMES OF COLLABORATORS HERE**
+
+**COLLABORATORS:**
+
+**Shai Aarons (sla88)**
+
+**Ariana Bhigroog (ab2959)**
+
+**Jon Caceres (jc3569)**
+
+**Rachel Minkowitz (rhm256)**
+
+**Amando Xu (ax45)**
 
 Does it feel like time is moving strangely during this semester?
 
