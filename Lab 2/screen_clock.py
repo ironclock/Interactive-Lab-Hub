@@ -51,7 +51,6 @@ backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
 
-
 # Scale the image to the smaller screen dimension
 image_ratio = image.width / image.height
 screen_ratio = width / height
@@ -69,7 +68,7 @@ y = scaled_height // 2 - height // 2
 image = image.crop((x, y, x + width, y + height))
 
 days_passed = 0
-SIMULATE_TIME_PASSING = False
+SIMULATE_TIME_PASSING = True
 
 while True:
     # Draw a black filled box to clear the image.
