@@ -20,8 +20,11 @@ ZODIAC_SIGNS = [
 ]
 
 # Fetch the current zodiac sign and the progress through it
-def get_current_zodiac():
-    now = datetime.datetime.now()
+def get_current_zodiac(simulate_time_passing, increment):
+    if simulate_time_passing:
+        now = datetime.datetime.now() + datetime.timedelta(days=increment)
+    else:
+        now = datetime.datetime.now()
     for sign, start, end in ZODIAC_SIGNS:
         start_date = datetime.datetime(now.year, start[1], start[0])
         end_date = datetime.datetime(now.year, end[1], end[0])
@@ -31,8 +34,12 @@ def get_current_zodiac():
             progress = day_of_sign / days_in_sign
             return sign, progress
 
+    # Default return if no zodiac range matches.
+    # Adjust as necessary, this is just an example.
+    return "Unknown", 0.0
+
 # Create the clock image
-def create_astrology_clock():
+def create_astrology_clock(simulate_time_passing, increment):
     width, height = 240, 135
 
     # Load zodiac signs
@@ -41,7 +48,7 @@ def create_astrology_clock():
     # earth = earth.resize((100, 100))
 
     # Calculate rotation based on current zodiac and progress
-    _, progress = get_current_zodiac()
+    _, progress = get_current_zodiac(simulate_time_passing, increment)
     rotation = 278 + (360 * progress)
 
     # Rotate zodiac

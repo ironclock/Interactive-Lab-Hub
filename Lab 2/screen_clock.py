@@ -44,10 +44,9 @@ image = Image.new("RGB", (width, height))
 draw = ImageDraw.Draw(image)
 
 # Draw a black filled box to clear the image.
-draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
-disp.image(image)
+# draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
+# disp.image(image)
 
-image = Image.open("astrology_clock.png")
 backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
@@ -69,12 +68,35 @@ x = scaled_width // 2 - width // 2
 y = scaled_height // 2 - height // 2
 image = image.crop((x, y, x + width, y + height))
 
+days_passed = 0
+SIMULATE_TIME_PASSING = False
 
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=400)
-    astrology_clock.create_astrology_clock()
 
+    days_passed += 0.6
+    astrology_clock.create_astrology_clock(SIMULATE_TIME_PASSING, days_passed)
+
+    image = Image.open("astrology_clock.png")
+
+    # Scale, crop, and center the image here
+    image_ratio = image.width / image.height
+    screen_ratio = width / height
+    if screen_ratio < image_ratio:
+        scaled_width = image.width * height // image.height
+        scaled_height = height
+    else:
+        scaled_width = width
+        scaled_height = image.height * width // image.width
+    image = image.resize((scaled_width, scaled_height), Image.BICUBIC)
+
+    # Crop and center the image
+    x = scaled_width // 2 - width // 2
+    y = scaled_height // 2 - height // 2
+    image = image.crop((x, y, x + width, y + height))
+    
     # Display image.
     disp.image(image)
-    time.sleep(86400)
+    
+    time.sleep(1)  # wait before next iteration
