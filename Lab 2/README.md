@@ -207,7 +207,6 @@ Please sketch/diagram your clock idea. (Try using a [Verplank digram](http://www
 
 <img src="media/sketch1.jpg">
 <img src="media/sketch2.jpeg">
-<img src="media/sketch3.jpg">
 
 **We strongly discourage and will reject the results of literal digital or analog clock display.**
 
@@ -234,6 +233,7 @@ After that, Git will ask you to login to your GitHub account to push the updates
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
 
+<img src="media/sketch3.jpg">
 
 # Prep for Part 2
 
