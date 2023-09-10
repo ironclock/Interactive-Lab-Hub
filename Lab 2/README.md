@@ -228,7 +228,8 @@ After that, Git will ask you to login to your GitHub account to push the updates
 ## Part F. 
 ## Make a short video of your modified barebones PiClock
 
-[![IMAGE ALT TEXT](https://img.youtube.com/vi/stTStYaP5z0/0.jpg)](https://www.youtube.com/watch?v=stTStYaP5z0)
+[![Video](https://img.youtube.com/vi/stTStYaP5z0/0.jpg)](https://www.youtube.com/watch?v=stTStYaP5z0)
+**Please click to play @ Youtube**
 
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
