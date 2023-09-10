@@ -207,6 +207,7 @@ Please sketch/diagram your clock idea. (Try using a [Verplank digram](http://www
 
 <img src="media/sketch1.jpg">
 <img src="media/sketch2.jpeg">
+<img src="media/sketch3.jpeg">
 
 **We strongly discourage and will reject the results of literal digital or analog clock display.**
 

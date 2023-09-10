@@ -47,10 +47,10 @@ def get_current_zodiac():
         elif end_date <= now <= next_start_date:
             days_in_sign = (end_date - start_date).days + 1
             day_of_sign = days_in_sign - 1
-            print('days in sign - ', days_in_sign)
+            # print('days in sign - ', days_in_sign)
             hour_of_sign = (next_start_date - now).days * 24 + (next_start_date - now).seconds // 3600
             # day_of_sign = (next_start_date - now).hour
-            print('hour of sign - ', day_of_sign)
+            # print('hour of sign - ', day_of_sign)
             progress = ((hour_of_sign / 24 ) + day_of_sign) / days_in_sign
             return sign, progress
 
