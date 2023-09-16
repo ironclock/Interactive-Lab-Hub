@@ -1,9 +1,11 @@
 # Copyright Shai Aarons, Ariana Bhigroog, Jon Caceres, Rachel Minkowitz, Amando Xu
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 import datetime
 
-# Define the Zodiac signs and their respective days
+font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 12)
+
+# define the Zodiac signs and their respective days
 ZODIAC_SIGNS = [
     (0, "Aries", (21, 3), (19, 4)),
     (1, "Taurus", (20, 4), (20, 5)),
@@ -19,80 +21,82 @@ ZODIAC_SIGNS = [
     (11, "Pisces", (19, 2), (20, 3))
 ]
 
-# Fetch the current zodiac sign and the progress through it
-# def get_current_zodiac(simulate_time_passing, increment):
+# fetch the current zodiac sign and the progress through it
 def get_current_zodiac():
-    # if simulate_time_passing:
-    #     now = datetime.datetime.now() + datetime.timedelta(days=increment)
-    # else:
     now = datetime.datetime.now()
-    # print('date - ', now)
     for idx, sign, start, end in ZODIAC_SIGNS:
         start_date = datetime.datetime(now.year, start[1], start[0])
-        # print('index - ', idx)
         if idx < 11:
             next_object = ZODIAC_SIGNS[idx+1]
         else:
             next_object = ZODIAC_SIGNS[0]
         next_start_date = datetime.datetime(now.year, next_object[2][1], next_object[2][0])
-        # print('start date - ', start_date)
-        # print('next start date - ', next_start_date)
         end_date = datetime.datetime(now.year, end[1], end[0])
         # print('end date - ', end_date)
         if start_date <= now < end_date:
-            days_in_sign = (end_date - start_date).days + 1
-            day_of_sign = (now - start_date).days
-            progress = day_of_sign / days_in_sign
+            total_seconds_in_sign = (end_date - start_date).total_seconds()
+            seconds_passed = (now - start_date).total_seconds()
+            progress = seconds_passed / total_seconds_in_sign
             return sign, progress
         elif end_date <= now <= next_start_date:
-            days_in_sign = (end_date - start_date).days + 1
-            day_of_sign = days_in_sign - 1
-            # print('days in sign - ', days_in_sign)
-            hour_of_sign = (next_start_date - now).days * 24 + (next_start_date - now).seconds // 3600
-            # day_of_sign = (next_start_date - now).hour
-            # print('hour of sign - ', day_of_sign)
-            progress = ((hour_of_sign / 24 ) + day_of_sign) / days_in_sign
+            total_seconds_in_sign = (end_date - start_date).total_seconds()
+            seconds_passed = total_seconds_in_sign + (now - end_date).total_seconds()
+            progress = seconds_passed / total_seconds_in_sign
             return sign, progress
 
-    # Default return if no zodiac range matches.
-    # return "Unknown", 0.0
+    # default return if no zodiac range matches
+    return "Unknown", 0.0
 
-# Create the clock image
-# def create_astrology_clock(simulate_time_passing, increment):
+# create the clock image
 def create_astrology_clock():
     width, height = 240, 135
 
-    # Load zodiac signs
-    zodiac_background = Image.open("nightsky_fifty.jpg") # You should have this image
-    earth = Image.open("earth.png")  # This should be a small image of Earth
-    # earth = earth.resize((100, 100))
+    # load zodiac signs
+    zodiac_background = Image.open("nightsky_fifty.jpg") # our night sky image :)
+    earth = Image.open("earth.png")  # this should be a small image of Earth
 
-    # Calculate rotation based on current zodiac and progress
-    # _, progress = get_current_zodiac(simulate_time_passing, increment)
+    # calculate rotation based on current zodiac and progress
     sign, progress = get_current_zodiac()
-    print(progress)
-    print('sign - ', sign)
     rotation = 90 + ((360 / 12) * progress)
 
-    # Rotate zodiac
+    # rotate zodiac
     zodiac_background = zodiac_background.rotate(rotation)
 
-    # Create base image
+    # create base image
     base = Image.new('RGBA', (width, height), (255, 255, 255, 255))
     base.paste(zodiac_background, (-190, -80))
     
-    # Draw earth and line
+    # draw earth and line
     earth_position = ((width - earth.width) // 2, height - earth.height)
-    base.paste(earth, earth_position, earth)  # Using earth as mask for transparency
+    base.paste(earth, earth_position, earth)  # using earth as mask for transparency
 
     draw = ImageDraw.Draw(base)
     line_start = (width // 2, earth_position[1])
     line_end = (width // 2, 0)
     draw.line([line_start, line_end], fill="red", width=2)
 
-    # Save the resulting image
-    base = base.convert('RGB')  # Ensure it's in RGB mode
-    base = base.quantize(colors=128).convert('RGB')  # Quantize and then convert back to 'RGB'
+    progress_text = f"Progress\n{sign} - {progress*100:.4f}%"
+    progress_text_position = (10, height - 40) 
+
+    outline_thickness = 1
+    for x in range(-outline_thickness, outline_thickness + 1):
+        for y in range(-outline_thickness, outline_thickness + 1):
+            draw.text((progress_text_position[0] + x, progress_text_position[1] + y), progress_text, font=font, fill="black")
+
+    draw.text(progress_text_position, progress_text, font=font, fill="white")
+
+    press_any_button = f"Press any button \nto continue"
+    button_text_position = (10, 5) 
+
+    for x in range(-outline_thickness, outline_thickness + 1):
+        for y in range(-outline_thickness, outline_thickness + 1):
+            draw.text((button_text_position[0] + x, button_text_position[1] + y), press_any_button, font=font, fill="black")
+
+    draw.text(button_text_position, press_any_button, font=font, fill="white")
+
+    # save the resulting image
+    base = base.convert('RGB')  # ensure it's in RGB mode
+    base = base.quantize(colors=128).convert('RGB')  # quantize and then convert back to 'RGB'
 
     base = base.rotate(90, expand=True)
 
