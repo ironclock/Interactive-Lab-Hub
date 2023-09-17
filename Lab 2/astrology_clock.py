@@ -35,7 +35,7 @@ def get_current_zodiac():
 
     # Calculate the offset based on speed_up
     if speed_up:
-        virtual_time_offset += datetime.timedelta(seconds=90000.9)  # 0.9 additional seconds for each real-world 0.1 second
+        virtual_time_offset += datetime.timedelta(seconds=90000)
 
     # Adjusted virtual time
     now = real_time_now + virtual_time_offset
@@ -54,7 +54,8 @@ def get_current_zodiac():
         start_date = datetime.datetime(start_year, start[1], start[0])
         end_date = datetime.datetime(end_year, end[1], end[0], *end[2:]) if len(end) > 2 else datetime.datetime(end_year, end[1], end[0])
 
-        print(f"For {sign}, Start Date: {start_date}, End Date: {end_date}, Now: {now}")
+        if start_date <= now < end_date:
+            print(f"For {sign}, Start Date: {start_date}, End Date: {end_date}, Now: {now}")
         
         if start_date <= now < end_date:  # Check if the current date falls within the sign's range
             total_seconds_in_sign = (end_date - start_date).total_seconds()
