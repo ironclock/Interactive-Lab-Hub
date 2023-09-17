@@ -19,7 +19,8 @@ ZODIAC_SIGNS = [
     (8, "Sagittarius", (22, 11), (21, 12), "\u2650"),
     (9, "Capricorn", (22, 12), (19, 1), "\u2651"),
     (10, "Aquarius", (20, 1), (18, 2), "\u2652"),
-    (11, "Pisces", (19, 2), (20, 3), "\u2653")
+    (11, "Pisces", (19, 2), (20, 3), "\u2653"),
+    (12, "Go back to clock", (0, 0), (0, 0), ">")
 ]
 
 # create a list of the zodiac signs
@@ -33,7 +34,11 @@ def create_zodiac_list_image():
     
     y_position = -110
     for idx, sign, start, end, symbol in ZODIAC_SIGNS:
-        text = f"{symbol} - {sign}: {start[1]}/{start[0]} to {end[1]}/{end[0]}"
+        text = ""
+        if idx == 12:
+            text = f"{symbol} - {sign}"
+        else:
+            text = f"{symbol} - {sign}: {start[1]}/{start[0]} to {end[1]}/{end[0]}"
         color = "red" if idx == 11 else "white"
         draw.text((10, y_position), text, font=font, fill=color)
         y_position += 20  # Move down 20 pixels for the next text

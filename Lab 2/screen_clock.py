@@ -1,3 +1,5 @@
+import os
+import sys
 import time
 import subprocess
 import digitalio
@@ -209,20 +211,22 @@ def show_list():
         disp.image(image, 90)
 
         if buttonA.value and not buttonB.value:  # move up
-            current_index = min(current_index + 1, 11)  # increment the index but don't exceed 11
+            current_index = min(current_index + 1, 12)  # increment the index but don't exceed 12
             time.sleep(0.1)
         elif not buttonA.value and buttonB.value:  # move down
             current_index = max(current_index - 1, 0)  # decrement the index but don't go below 0
             time.sleep(0.1)
         elif not buttonA.value and not buttonB.value:  # select
             time.sleep(0.5)
+            if current_index == 12:
+                os.execl(sys.executable, sys.executable, *sys.argv)
             horoscope = get_horoscope(zodiac_signs[current_index])
             display_horoscope(horoscope)
             break
 
 # main logic
 while True:
-    if buttonA.value and not buttonB.value or not buttonA.value and buttonB.value:  # press any button
+    if buttonA.value and not buttonB.value or not buttonA.value and buttonB.value: # press any button
         disp.fill(color565(0, 0, 0))  # set the screen to black
         show_list()
         break
