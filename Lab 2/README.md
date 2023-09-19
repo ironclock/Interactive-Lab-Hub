@@ -34,7 +34,7 @@ Before the start of lab Thursday, [pull changes from the Interactive Lab Hub](ht
 
   ```
   Interactive-Lab-Hub $ git remote add upstream https://github.com/FAR-Lab/Interactive-Lab-Hub.git
-  Interactive-Lab-Hub $ git pull upstream Fall2022
+  Interactive-Lab-Hub $ git pull upstream Fall2023
   ```
   
   The reason why we are adding a upstream with **course lab-hub** instead of yours is because the local Interactive-Lab-Hub folder is linked with your own git repo already. Try typing ``git remote -v`` and you should see there is the origin branch with your own git repo. We here add the upstream to get latest updates from the teaching team by pulling the **course lab-hub** to your local machine. After your local folder got the latest updates, push them to your remote git repo by running:
@@ -96,6 +96,12 @@ pi@raspberrypi:~ $ source venv/bin/activate
 
 ```
 ### Setup Personal Access Tokens on GitHub
+Set your git name and email so that commits appear under your name.
+```
+git config --global user.name "Your Name"
+git config --global user.email "yourNetID@cornell.edu"
+```
+
 The support for password authentication of GitHub was removed on August 13, 2021. That is, in order to link and sync your own lab-hub repo with your Pi, you will have to set up a "Personal Access Tokens" to act as the password for your GitHub account on your Pi when using git command, such as `git clone` and `git push`.
 
 Following the steps listed [here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) from GitHub to set up a token. Depends on your preference, you can set up and select the scopes, or permissions, you would like to grant the token. This token will act as your GitHub password later when you use the terminal on your Pi to sync files with your lab-hub repo.
@@ -130,7 +136,7 @@ We have asked you to equip the [Adafruit MiniPiTFT](https://www.adafruit.com/pro
 
 <img src="https://cdn-learn.adafruit.com/assets/assets/000/082/842/large1024/adafruit_products_4393_iso_ORIG_2019_10.jpg" height="200" />
 
-The Raspberry Pi 3 has a variety of interfacing options. When you plug the pi in the red power LED turns on. Any time the SD card is accessed the green LED flashes. It has standard USB ports and HDMI ports. Less familiar it has a set of 20x2 pin headers that allow you to connect a various peripherals.
+The Raspberry Pi 4 has a variety of interfacing options. When you plug the pi in the red power LED turns on. Any time the SD card is accessed the green LED flashes. It has standard USB ports and HDMI ports. Less familiar it has a set of 20x2 pin headers that allow you to connect a various peripherals.
 
 <img src="https://maker.pro/storage/g9KLAxU/g9KLAxUiJb9e4Zp1xcxrMhbCDyc3QWPdSunYAoew.png" height="400" />
 
@@ -138,7 +144,7 @@ To learn more about any individual pin and what it is for go to [pinout.xyz](htt
 
 ### Hardware (you have already done this in the prep)
 
-From your kit take out the display and the [Raspberry Pi 3](https://cdn-shop.adafruit.com/970x728/3775-07.jpg)
+From your kit take out the display and the [Raspberry Pi 4](https://cdn-shop.adafruit.com/970x728/3775-07.jpg)
 
 Line up the screen and press it on the headers. The hole in the screen should match up with the hole on the raspberry pi.
 
@@ -210,9 +216,6 @@ Please sketch/diagram your clock idea. (Try using a [Verplank digram](http://www
 
 ***Museum artwork by Rachel Minkowitz***
 
-**We strongly discourage and will reject the results of literal digital or analog clock display.**
-
-
 \*\*\***A copy of your code should be in your Lab 2 Github repo.**\*\*\*
 
 After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
@@ -237,13 +240,17 @@ We designed a 'zodiac clock' which ticks each day and shows the progress through
 
 Run `screen_clock.py` in order for the clock to appear on the LCD screen. The main logic for our clock is located in `astrology_clock.py`
 
+***Some of our script was coded using the assistance of ChatGPT***
+
 
 ## Part F. 
 ## Make a short video of your modified barebones PiClock
 
 [![Video](https://img.youtube.com/vi/stTStYaP5z0/0.jpg)](https://www.youtube.com/watch?v=stTStYaP5z0)
-
+<br>
 **Please click to play @ Youtube**
+***Filmography by Jon Caceres***
+<br>
 
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
@@ -267,8 +274,41 @@ Pull Interactive Lab Hub updates to your repo.
 
 Modify the code from last week's lab to make a new visual interface for your new clock. You may [extend the Pi](Extending%20the%20Pi.md) by adding sensors or buttons, but this is not required.
 
-As always, make sure you document contributions and ideas from others explicitly in your writeup.
+In part 2 of the lab, we extend our device to have a new interface that requires interaction with users. Taking in feedback from peers, we extend the Astrology clock to include features that make the purpose of the clock more clear. We also enable the user to interact with the clock by using the buttons on the device interface. We document all our changes below:
 
-You are permitted (but not required) to work in groups and share a turn in; you are expected to make equal contribution on any group work you do, and N people's group project should look like N times the work of a single person's lab. What each person did should be explicitly documented. Make sure the page for the group turn in is linked to your Interactive Lab Hub page. 
+tl;dr: steps to work the clock:
+1. with this repo on your local pi machine run `screen_clock.py` -> you should see the horoscope clock
+2. click either button to interact with the clock
+3. scroll up or down using either button to reach your birth sign
+4. select the sign by pressing both buttons at the same time while the arrow is set on your choice of sign
+5. see your daily horoscope!
+6. to go back to the sign menu - press both button at the same time
+7. to go back to the horoscope clock - place the pointer on "go back to clock" on the menu and press both buttons at the same time
+
+A. We added a text interface on top of the clock display to demonstrate to users the progress through an astrological period. We show the progress through the astrological period via a percentage point. For example, on September 17th, we are 81% through the Virgo horoscope sign. Based on feedback from peers, we also have included instructive information about how to use the device with the comment: "Press any button to continue." This is shown below:
+
+<img width="483" alt="268529167-121c11f0-38e1-45f8-9162-23f09a794705" src="https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/2fd2b1f4-545c-4e1c-923b-82fb8dd5cdc1">
+
+
+B. We added daily horoscope functionality to the device. A horoscope is defined as "a forecast of a person's future, typically including a delineation of character and circumstances, based on the relative positions of the stars and planets at the time of that person's birth." Our device can now fetch a user's daily horoscope based on their astrological sign (i.e. Leo, Virgo, Libra) and today's position of the horoscope on the astrology clock. In order to do this - we added a second interface for the user to interact with after they are prompted to press either button. The second interface allows users to scroll through the available star signs (according to their birth date) and make their selection. The user selects their sign by pressing both of the available buttons at the same time while the arrow is pointing at their selected sign. Once the user selects their sign, they are shown their daily horoscope reading on a new screen. We fetch daily horoscopes for users via API calls and web scraping using the Python library Beautiful Soup. The user can then go back to the available star signs by pressing both buttons at the same time again, as well as return to the clock by selecting to exit the horoscope menu. Some of these interfaces are shown below:
+<img width="852" alt="268529522-a2681741-5a59-49a4-9bff-5b7ca71ad8cd" src="https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/bb9fb3e8-d979-41c6-bb5a-fd3644bde976">
+
+
+Video of interactions:
+
+https://drive.google.com/file/d/1jxUUnSxp9vvoOmINi4mQ_n83M51_BDLD/view?usp=drivesdk
+
+
+# Contributions
+
+All group members collaborated to contribute to the codebase for this assignment
+
+Jon Caceres and Ariana Bhigroog spent extra hours contributing to the codebase
+
+Jon Caceres created the masterful video of the device
+
+Shai Aarons wrote this document
+
+Chat GPT was used for help in the initial code setup as well as for helping with troubleshooting when we were blocked
 
 
