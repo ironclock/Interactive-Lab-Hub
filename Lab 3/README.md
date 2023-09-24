@@ -176,7 +176,7 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device.
 Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing.  Please record this interaction (for example, using Zoom's record feature).
 
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
-
+<mark style="background: #FFB8EBA6;">pink</mark>
 <mark style="background: #FFB8EBA6;">* The dialogue did not seem much different from what we imagined it to be when acted out. The flow of the interaction between the device and the user was smooth and in line with what we imagined it to be. However, one thing we noticed from our interaction was that there may be a potential issue if the user gives more than one input to SpotiPi. How would SpotiPi handle more complex speech against user interactions? For example, if a user says to SpotiPi "Ugh, I'm sad... wait no, actually I'm happy", would SpotiPi register the first or second input as the mood? Which one will SpotiPi choose to map back to a song </mark>
 
 ## Wizarding with the Pi (optional)
