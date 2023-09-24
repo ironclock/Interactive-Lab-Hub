@@ -110,12 +110,10 @@ python test_microphone.py -m en
 
 \*\***Write your own shell file that verbally asks for a numerical based input (such as a phone number, zipcode, number of pets, etc) and records the answer the respondent provides.**\*\*
 
-```
 ### Serving Pages
 
 In Lab 1, we served a webpage with flask. In this lab, you may find it useful to serve a webpage for the controller on a remote device. Here is a simple example of a webserver.
 
-```
 ```
 pi@ixe00:~/Interactive-Lab-Hub/Lab 3 $ python server.py
  * Serving Flask app "server" (lazy loading)
