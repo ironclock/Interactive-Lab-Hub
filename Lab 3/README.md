@@ -174,7 +174,7 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device.
 Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing.  Please record this interaction (for example, using Zoom's record feature).
 
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
-
+<mark style="background: #FFB8EBA6;">pink</mark> 
 ```diff
 + * The dialogue did not seem much different from what we imagined it 
 + to be when acted out. The flow of the interaction between the device 
