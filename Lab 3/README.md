@@ -176,7 +176,12 @@ Find a partner, and *without sharing the script with your partner* try out the d
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
 
 ```diff
-+ * The dialogue did not seem much different from what we imagined it to be when acted out. The flow of the interaction between the device and the user was smooth and in line with what we imagined it to be. However, one thing we noticed from our interaction was that there may be a potential issue if the user gives more than one input to SpotiPi. How would SpotiPi handle more complex speech against user interactions? For example, if a user says to SpotiPi "Ugh, I'm sad... wait no, actually I'm happy", would SpotiPi register the first or second input as the mood? Which one will SpotiPi choose to map back to a song? 
++ * The dialogue did not seem much different from what we imagined it to be when acted out.
++ The flow of the interaction between the device and the user was smooth and in line with what we imagined it to be. 
++ However, one thing we noticed from our interaction was that there may be a potential issue if the user gives more than one input to SpotiPi. 
++ How would SpotiPi handle more complex speech against user interactions? 
++ For example, if a user says to SpotiPi "Ugh, I'm sad... wait no, actually I'm happy", would 
++ SpotiPi register the first or second input as the mood? Which one will SpotiPi choose to map back to a song? 
 ```
 ## Wizarding with the Pi (optional)
 In the [demo directory](./demo), you will find an example Wizard of Oz project. In that project, you can see how audio and sensor data is streamed from the Pi to a wizard controller that runs in the browser.  You may use this demo code as a template. By running the `app.py` script, you can see how audio and sensor data (Adafruit MPU-6050 6-DoF Accel and Gyro Sensor) is streamed from the Pi to a wizard controller that runs in the browser `http://<YouPiIPAddress>:5000`. You can control what the system says from the controller as well!
