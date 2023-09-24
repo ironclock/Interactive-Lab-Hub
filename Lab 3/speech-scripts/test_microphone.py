@@ -8,6 +8,7 @@ import argparse
 import queue
 import sys
 import sounddevice as sd
+import json
 
 from vosk import Model, KaldiRecognizer
 
@@ -66,7 +67,10 @@ try:
     else:
         dump_fn = None
 
-    with sd.RawInputStream(samplerate=args.samplerate, blocksize = 8000, device=args.device,
+    buffered_text = []
+    spoken = False
+
+    with sd.RawInputStream(samplerate=args.samplerate, blocksize=8000, device=args.device,
             dtype="int16", channels=1, callback=callback):
         print("#" * 80)
         print("Press Ctrl+C to stop the recording")
@@ -76,11 +80,25 @@ try:
         while True:
             data = q.get()
             if rec.AcceptWaveform(data):
-                print(rec.Result())
+                result = rec.Result()
+                print(result)
+                res_json = json.loads(result)
+                if "text" in res_json and res_json["text"].strip() != "":
+                    spoken = True
+                    buffered_text.append(res_json["text"])
             else:
-                print(rec.PartialResult())
+                partial = rec.PartialResult()
+                print(partial)
+                partial_json = json.loads(partial)
+                if "partial" in partial_json and partial_json["partial"].strip() == "" and spoken:
+                    break
+                elif "partial" in partial_json and partial_json["partial"].strip() != "":
+                    spoken = True
+
             if dump_fn is not None:
                 dump_fn.write(data)
+
+    print("Recorded Text:", ' '.join(buffered_text))
 
 except KeyboardInterrupt:
     print("\nDone")
