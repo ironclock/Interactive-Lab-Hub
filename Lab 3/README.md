@@ -78,7 +78,7 @@ Typically, a `.sh` file is a shell script which you can execute in a terminal. T
 You can also play audio files directly with `aplay filename`. Try typing `aplay lookdave.wav`.
 
 \*\***Write your own shell file to use your favorite of these TTS engines to have your Pi greet you by name.**\*\*
-<span style="background-color: yellow">The file for this is `speak_jon.sh` inside of `Lab 3`</span>
++The file for this is `speak_jon.sh` inside of `Lab 3`
 
 ---
 Bonus:
