@@ -152,6 +152,7 @@ From a remote browser on the same network, check to make sure your webserver is 
 Storyboard and/or use a Verplank diagram to design a speech-enabled device.
 
 **Storyboard:**
+![IMG_1663](./storyboard.png)
 
 **Verplank Diagram:**
 ![IMG_1663](https://github.com/arianab68/Interactive-Lab-Hub/assets/70418227/03afddab-939d-4905-baca-f334898717c4)
