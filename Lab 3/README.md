@@ -172,6 +172,10 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device.
 
 ## Acting out the dialogue
 
+**Recording:**
+
+https://drive.google.com/file/d/1CsTcaqhqGRCiWhEwGoUZI8e1PQzRb178/view?usp=drivesdk
+
 Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing.  Please record this interaction (for example, using Zoom's record feature).
 
 **Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**
