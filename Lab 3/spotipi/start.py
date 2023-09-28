@@ -110,28 +110,40 @@ buttonB.switch_to_input()
 
 while True:
     # print("Press any button")
-    if buttonA.value and not buttonB.value or not buttonA.value and buttonB.value: # press any button
+    # if buttonA.value and not buttonB.value or not buttonA.value and buttonB.value: # press any button
     # disp.fill(color565(0, 0, 0))  # set the screen to black
     # show_list()
-      # message = listener.start()
-      # r = api.callGPT(message, True, False)
-      # content = json.loads(r)
-      # print(content)
-      # if 'flow_1' in content:
-      #     print('flow 1')
-      #     # api call to spotify
-      # if 'flow_2' in content:
-      #     mood = content['flow_2']
-      #     print('flow 2')
-      #     # TODO: Speak to the fuckin user
-      #     print('Do you want to feel different or continue feeling the same?')
-      #     time.sleep(2)
-      #     message = listener.start()
-      #     r = api.callGPT(message, False, True, mood)
-      #     content = json.loads(r)
-      #     print(content)
-      # else:
-      #     print('error - flow 3')
-      # # print(type(test))
-      # break
-      api.playYoutubeVideo()
+    message = listener.start()
+    # message = "i feel like i want to rizz someone"
+    r = api.callGPT(message, True, False)
+    content = json.loads(r)
+    print(content)
+    if 'flow_1' in content:
+        print('flow 1')
+        #   flow_1 = {
+        #       song_name: 'bad blood'
+        #       artist_name: 'taylor swift'
+        #   }
+        # api call to youtube
+    if 'flow_2' in content:
+        mood = content['flow_2']
+        print(content)
+        print('flow 2')
+        print('Do you want to feel different or continue feeling the same?')
+        time.sleep(2)
+        # message = 'i want to feel different'
+        message = listener.start()
+        r = api.callGPT(message, False, True, mood)
+        content = json.loads(r)
+        # print('content - ', content)
+        query = content['song_name'] + ' ' + content['artist_name']
+        print('Now playing - ', query)
+        result = api.search_youtube(query, max_results=1)
+        api.playYoutubeVideo(result)
+        time.sleep(30)
+    else:
+        print('error - flow 3')
+    # print(type(test))
+    # search_youtube(query, max_results=10):
+    # api.playYoutubeVideo()
+    break
