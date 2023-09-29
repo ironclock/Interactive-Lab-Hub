@@ -4,26 +4,37 @@ import vlc
 import time
 import yt_dlp
 import pygame
+import json
+from enum import Enum
 from googleapiclient.discovery import build
 
-def callGPT(message, firstInstructions = False, secondInstructions = False, mood = ""):
+with open("keys.json", "r") as file:
+    keys = json.load(file)
 
-  # instructions_one = "I'm going to be making a request of a song and it's going to yield one of two flows. It is up to you to decide which flow to take. Flow 1 would be one of the following: a request for a specific song, OR the name of an artist (you pick a song by the artist), OR a genre (you pick the song). Flow 2 would be an indication of my emotions and/or how I'm currently feeling. If you choose Flow 1, return to me the following: a dictionary containing the key `flow_1` with two values, one being song name, and the other being artist name. If you choose Flow 2, return a dictionary containing the key `flow_2`. I'm going to provide you six mood categories. You must categorize my mood within one of these six categories: ['happy', 'sad', 'fear', 'tired', 'anger', 'aroused']. Pick one of the categories and use it as the value for the key `flow_2`. If I am not making a request for a song or if I'm not making any kind of indication of how I'm feeling, return the key `flow_3`. Do not provide ANY other output besides a dictionary. The request will now follow: "
+with open('instructions.json', 'r') as file:
+    INSTRUCTIONS = json.load(file)
 
-  instructions_one = "I'm going to be making a request of a song and it's going to yield one of two flows. It is up to you to decide which flow to take. Flow 1 would be one of the following: a request for a specific song, OR the name of an artist (you pick a song by the artist), OR a genre (you pick the song). Flow 2 would be an indication of my emotions and/or how I'm currently feeling. If you choose Flow 1, return to me the following: a dictionary containing the key `flow_1` with two values, one being song name, and the other being artist name. If you choose Flow 2, return a dictionary containing the key `flow_2`. Make the mood I give you the value for the key `flow_2`. If I am not making a request for a song or if I'm not making any kind of indication of how I'm feeling, return the key `flow_3`. Do not provide ANY other output besides a dictionary. The request will now follow: "
+OPENAI_API_KEY = keys["OPENAI_API_KEY"]
+YOUTUBE_API_KEY = keys["YOUTUBE_API_KEY"]
 
-  instructions_two = "I'm going to tell you that I either want to feel different or I want to maintain my current mood. The mood I'm feeling is: " + mood + ". If I tell you that I want to feel different, then I want you to pick a RANDOM song that will change my mood. I swear to god don't choose Happy by Pharrell Williams. If I tell you that I want to maintain my current mood, then I want you to pick a RANDOM song that matches my mood. With this information and the choice I'm about to give you, ONLY return a dictionary containing the song name with `song_name` as the key and the artist name with `artist_name` as the key. DON'T PROVIDE ANYTHING ELSE. My choice is as follows: "
+BASE_URL = 'https://api.openai.com/v1/chat/completions'
 
-  instructions = ""
+class Model(Enum):
+   GPT4JUNE2023 = "gpt-4-0613"
+   GPT4 = "gpt-4"
+   GPT35TURBO = "gpt-3.5-turbo"
 
-  if firstInstructions:
-    instructions = instructions_one
-  elif secondInstructions:
-    instructions = instructions_two
+HEADERS = {
+    "Authorization": f"Bearer {OPENAI_API_KEY}",
+    "Content-Type": "application/json"
+}
+
+def callGPT(message, instruction_type, mood = ""):
+  instructions = INSTRUCTIONS[instruction_type].format(mood = mood)
 
   # Define the payload
   payload = {
-      "model": "gpt-4",
+      "model": Model.GPT4JUNE2023.value,
       "messages": [
           {
               "role": "user",
@@ -37,20 +48,12 @@ def callGPT(message, firstInstructions = False, secondInstructions = False, mood
       "presence_penalty": 0
   }
 
-  headers = {
-    "Authorization": "Bearer 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",  # Replace with your actual API key
-    "Content-Type": "application/json"
-  }
-
   # Send the POST request
-  r = requests.post('https://api.openai.com/v1/chat/completions', json=payload, headers=headers)
+  r = requests.post('https://api.openai.com/v1/chat/completions', json = payload, headers = HEADERS)
   response_data = r.json()
   content = response_data['choices'][0]['message']['content']
 
   return content
-
-  # Print the response (optional)
-  print(r.json())
 
 def playYoutubeVideo(url):
   URL = url
@@ -75,12 +78,11 @@ def playYoutubeVideo(url):
 
       player = vlc.MediaPlayer(playUrl)
       player.play()
-    
-API_KEY = 'AIzaSyArcJK_DAzm5Efjx1a8uw8u49LA97pHZVI'  # Replace with your API key
+
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
-youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=API_KEY)
+youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey = YOUTUBE_API_KEY)
 
 def search_youtube(query, max_results=10):
     search_response = youtube.search().list(

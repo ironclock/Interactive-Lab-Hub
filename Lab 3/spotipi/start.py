@@ -24,6 +24,10 @@ import listener
 import api
 import json
 import time
+import subprocess
+import re
+import ast
+from enum import Enum
 
 # Configuration for CS and DC pins (these are PiTFT defaults):
 cs_pin = digitalio.DigitalInOut(board.CE0)
@@ -108,42 +112,121 @@ buttonB = digitalio.DigitalInOut(board.D24)
 buttonA.switch_to_input()
 buttonB.switch_to_input()
 
+with open("instructions.json", "r") as file:
+    INSTRUCTIONS = json.load(file)
+
+QUESTION = """echo "Tell me how you are feeling today or request a song you'd like to here" | festival --tts"""
+MOOD_QUESTION = "echo 'Do you want to feel different or continue feeling the same?' | festival --tts"
+
+class INSTRUCTION_TYPE(Enum):
+   FIRST = "FIRST"
+   SECOND = "SECOND"
+
+def speak(message):
+    subprocess.run(['/bin/bash', '-c', message])
+
+def ask_question(command):
+    print('Now listening...')
+    speak(command)
+    return listener.start()
+    
+def handle_flow_1(content):
+    print('flow 1')
+    # Handle Flow 1 logic here...
+
+def handle_flow_2(content):
+    print('flow 2')
+    message = ask_question(MOOD_QUESTION)
+    # Adjusting the way we pass the instructions to callGPT()
+    print('instructions')
+    # print(INSTRUCTION_TYPE.SECOND.value.format(mood=content['flow_2']))
+    r = api.callGPT(message, instruction_type = INSTRUCTION_TYPE.SECOND.value, mood = content['flow_2'])
+    # print('before extract dictionary - ', r)
+    # dictionary = extract_dictionary(r)
+    # print('after extract dictionary - ', dictionary)
+    response_content = json.loads(r)
+    query = f"{ response_content['song_name'] } by { response_content['artist_name'] }"
+
+    result = api.search_youtube(query, max_results = 1)
+    now_playing = "echo \"Now playing " + str(response_content['song_name']) + " by " + str(response_content['artist_name']) + "\" | festival --tts"""
+    print(now_playing)
+    speak(now_playing)
+    time.sleep(3)
+    api.playYoutubeVideo(result)
+    time.sleep(90)
+
+def handle_flow_3(content):
+    print('error - flow 3' + content)
+    speak("I did not understand your request, please try again")
+    ask_question(QUESTION)
+
+
+def extract_dictionary(s):
+    # Search for the dictionary using regex
+    match = re.search(r'{.*?}', s)
+    
+    # If found, convert it to a dictionary
+    if match:
+        return ast.literal_eval(match.group(0))
+        # return ast.literal_eval(match.group(0))
+    return None
+
 while True:
     # print("Press any button")
     # if buttonA.value and not buttonB.value or not buttonA.value and buttonB.value: # press any button
-    # disp.fill(color565(0, 0, 0))  # set the screen to black
-    # show_list()
-    message = listener.start()
-    # message = "i feel like i want to rizz someone"
-    r = api.callGPT(message, True, False)
+    message = ask_question(QUESTION)
+    # Adjusting the way we pass the instructions to callGPT()
+    r = api.callGPT(message, instruction_type = INSTRUCTION_TYPE.FIRST.value)
+    ast.literal_eval(r)
+    print('response - ', r)
     content = json.loads(r)
-    print(content)
+    # print(content)
+
     if 'flow_1' in content:
-        print('flow 1')
-        #   flow_1 = {
-        #       song_name: 'bad blood'
-        #       artist_name: 'taylor swift'
-        #   }
-        # api call to youtube
-    if 'flow_2' in content:
-        mood = content['flow_2']
-        print(content)
-        print('flow 2')
-        print('Do you want to feel different or continue feeling the same?')
-        time.sleep(2)
-        # message = 'i want to feel different'
-        message = listener.start()
-        r = api.callGPT(message, False, True, mood)
-        content = json.loads(r)
-        # print('content - ', content)
-        query = content['song_name'] + ' ' + content['artist_name']
-        print('Now playing - ', query)
-        result = api.search_youtube(query, max_results=1)
-        api.playYoutubeVideo(result)
-        time.sleep(30)
+        handle_flow_1(content)
+    elif 'flow_2' in content:
+        handle_flow_2(content)
     else:
-        print('error - flow 3')
-    # print(type(test))
-    # search_youtube(query, max_results=10):
-    # api.playYoutubeVideo()
+        handle_flow_3
     break
+
+
+# while True:
+#     # print("Press any button")
+#     # if buttonA.value and not buttonB.value or not buttonA.value and buttonB.value: # press any button
+#     command = "echo 'What is your zip code?' | piper --model en_US-lessac-medium --output-raw | aplay -r 22050 -f S16_LE -t raw -"
+#     subprocess.run(command, shell=True)
+#     time.sleep(1)
+#     message = listener.start()
+#     r = api.callGPT(message, True, False)
+#     content = json.loads(r)
+#     print(content)
+#     if 'flow_1' in content:
+#         print('flow 1')
+#         #   flow_1 = {
+#         #       song_name: 'bad blood'
+#         #       artist_name: 'taylor swift'
+#         #   }
+#         # api call to youtube
+#     if 'flow_2' in content:
+#         mood = content['flow_2']
+#         print(content)
+#         print('flow 2')
+#         print('Do you want to feel different or continue feeling the same?')
+#         time.sleep(2)
+#         # message = 'i want to feel different'
+#         message = listener.start()
+#         r = api.callGPT(message, False, True, mood)
+#         content = json.loads(r)
+#         # print('content - ', content)
+#         query = content['song_name'] + ' ' + content['artist_name']
+#         print('Now playing - ', query)
+#         result = api.search_youtube(query, max_results=1)
+#         api.playYoutubeVideo(result)
+#         time.sleep(90)
+#     else:
+#         print('error - flow 3')
+#     # print(type(test))
+#     # search_youtube(query, max_results=10):
+#     # api.playYoutubeVideo()
+#     break
