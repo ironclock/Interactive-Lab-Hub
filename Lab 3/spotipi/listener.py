@@ -57,7 +57,7 @@ def start():
           device_info = sd.query_devices(args.device, "input")
           # soundfile expects an int, sounddevice provides a float:
           args.samplerate = int(device_info["default_samplerate"])
-          
+
       if args.model is None:
           model = Model(lang="en-us")
       else:
@@ -71,6 +71,7 @@ def start():
       buffered_text = []
       spoken = False
 
+      print("Now listening") # TODO: Display to user
       with sd.RawInputStream(samplerate=args.samplerate, blocksize=8000, device=args.device,
               dtype="int16", channels=1, callback=callback):
           print("#" * 80)

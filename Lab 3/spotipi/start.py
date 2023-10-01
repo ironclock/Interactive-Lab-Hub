@@ -13,7 +13,7 @@ Author(s): Melissa LeBlanc-Williams for Adafruit Industries
 
 import digitalio
 import board
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.ili9341 as ili9341
 import adafruit_rgb_display.st7789 as st7789  # pylint: disable=unused-import
 import adafruit_rgb_display.hx8357 as hx8357  # pylint: disable=unused-import
@@ -28,6 +28,8 @@ import subprocess
 import re
 import ast
 from enum import Enum
+from io import BytesIO
+import helper
 
 # Configuration for CS and DC pins (these are PiTFT defaults):
 cs_pin = digitalio.DigitalInOut(board.CE0)
@@ -87,7 +89,6 @@ backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
 
-
 # Scale the image to the smaller screen dimension
 image_ratio = image.width / image.height
 screen_ratio = width / height
@@ -127,8 +128,8 @@ def speak(message):
     subprocess.run(['/bin/bash', '-c', formatted_message])
 
 def ask_question(command):
-    print('Now listening...')
     speak(command)
+    helper.draw_emoji("🤔")
     return listener.start()
     
 def handle_flow_1(content):
@@ -144,6 +145,7 @@ def handle_flow_1(content):
         print(now_playing)
         speak(now_playing)
         time.sleep(3)
+        # helper.draw_emoji("🎶")
         api.playYoutubeVideo(result)
         time.sleep(90)
     else:
@@ -152,8 +154,12 @@ def handle_flow_1(content):
 
 def handle_flow_2(content):
     print('flow 2')
+    emoji = content['flow_2']['emoji']
+    if emoji:
+        helper.draw_emoji(emoji)
     message = ask_question(MOOD_QUESTION)
-    r = api.callGPT(message, instruction_type = INSTRUCTION_TYPE.SECOND.value, mood = content['flow_2'])
+    r = api.callGPT(message, instruction_type = INSTRUCTION_TYPE.SECOND.value, mood = content['flow_2']['mood'], emoji = content['flow_2']['emoji'])
+    print(r)
     response_content = json.loads(r)
     query = f"{ response_content['song_name'] } by { response_content['artist_name'] }"
 
@@ -162,30 +168,41 @@ def handle_flow_2(content):
     print(now_playing)
     speak(now_playing)
     time.sleep(3)
+    # helper.draw_emoji("🎶")
     api.playYoutubeVideo(result)
-    time.sleep(90)
 
 def handle_flow_3(content):
     print('error - flow 3')
     print(content)
+    helper.draw_emoji("🤨")
     speak("I did not understand your request, please try again")
-    ask_question(QUESTION)
+    # ask_question(QUESTION)
 
 while True:
-    # print("Press any button")
-    # if buttonA.value and not buttonB.value or not buttonA.value and buttonB.value: # press any button
+    helper.draw_emoji("😌")  # greeting face
     message = ask_question(QUESTION)
     # Adjusting the way we pass the instructions to callGPT()
-    r = api.callGPT(message, instruction_type = INSTRUCTION_TYPE.FIRST.value)
-    ast.literal_eval(r)
-    print('response - ', r)
-    content = json.loads(r)
-    # print(content)
+    r = api.callGPT(message, instruction_type=INSTRUCTION_TYPE.FIRST.value, emoji="")
+    print(r)
+    
+    # Try to evaluate the string
+    try:
+        ast.literal_eval(r)
+    except (ValueError, SyntaxError):
+        handle_flow_3({})
+        continue
+
+    content = {}
+    try:
+        content = json.loads(r)
+    except json.JSONDecodeError:
+        handle_flow_3({})
+        continue
 
     if 'flow_1' in content:
         handle_flow_1(content)
+        continue
     elif 'flow_2' in content:
         handle_flow_2(content)
     else:
         handle_flow_3(content)
-    break

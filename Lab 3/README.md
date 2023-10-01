@@ -204,7 +204,35 @@ The system should:
 * use one or more sensors
 * require participants to speak to it. 
 
-*Document how the system works*
+# Documentation
+
+## Imports and Dependencies
+
+* json: Used to read API keys from keys.json and to convert OpenAI responses into JSON objects for Python processing.
+* vlc: Utilized for streaming audio content from YouTube.
+* yt_dlp: Enables the download of YouTube videos for subsequent streaming via VLC.
+* googleapiclient.discovery (from build): Interfaces with Google's API for YouTube video search functionality.
+* cv2: Used to stream video content to display.
+* requests: Facilitates communication with OpenAI's API.
+* Enum: Defines Enum classes for structured data representation.
+
+## How-To Guide/Instructions
+
+**System Overview**
+
+The system integrates the Vosk toolkit for offline speech recognition and utilizes OpenAI's GPT model to process and understand user input. The primary functionality involves interpreting user requests to either play specific songs or provide songs based on expressed moods. Google's YouTube API is used to query a song and play the audio back to the user while also playing the video on the display.
+
+**Workflow**
+
+1. User Interaction: The user communicates with the Raspberry Pi, indicating a mood or specifying a song.
+2. Voice to Text using Vosk: Vosk converts the user's spoken words into textual data.
+3. GPT Processing: The transcribed text is sent to OpenAI's GPT API along with guiding instructions. The expected output from GPT is a JSON object in response to the user's input.
+4. Flow Determination:
+  * Flow 1: If a song request is detected, GPT returns a JSON object with a flow_1 key. Nested within is another JSON object holding song_name and artist_name. This information is relayed to YouTube's API to fetch the appropriate song, which is then played back.
+  * Flow 2: For mood-based inputs, GPT responds with a flow_2 key with the mood and an associated emoji as its value. The system subsequently inquires if the user intends to maintain or alter their mood. GPT then suggests a song that aligns with the mood, again providing song_name and artist_name. This is passed to the YouTube API, and the song is played.
+  * Flow 3: We tell the user we could not understand if GPT could not properly parse their request. Then we loop back to the beginning of the program.
+
+The program is designed to interpret user input and either provide the most relevant song based on the user's mood or directly play a song being requested.
 
 *Include videos or screencaptures of both the system and the controller.*
 

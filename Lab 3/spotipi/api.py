@@ -1,12 +1,12 @@
 import requests  
-import pafy
 import vlc
-import time
 import yt_dlp
-import pygame
 import json
 from enum import Enum
 from googleapiclient.discovery import build
+import time
+import helper
+import threading
 
 with open("keys.json", "r") as file:
     keys = json.load(file)
@@ -29,7 +29,7 @@ HEADERS = {
     "Content-Type": "application/json"
 }
 
-def callGPT(message, instruction_type, mood = ""):
+def callGPT(message, instruction_type, mood = "", emoji = ""):
   instructions = INSTRUCTIONS[instruction_type].format(mood = mood)
 
   # Define the payload
@@ -55,29 +55,51 @@ def callGPT(message, instruction_type, mood = ""):
 
   return content
 
+def contains_tag(url):
+    return "tag=244" in url
+
 def playYoutubeVideo(url):
-  URL = url
+    ydl_opts = {}
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        info = ydl.extract_info(url, download=False)
+        video_duration = info['duration']
 
-  ydl_opts = {}
-  with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-      # get all information about the youtube video
-      info = ydl.extract_info(URL, download=False)
-      
-      formats = info['formats']
-      print(f"Found {len(formats)} formats")
-      # iterate through all of the available formats
-      playUrl = ""
-      for i,format in enumerate(formats):
-          # print the url
-          url = format['url']
-          # print(f"{i}) {url}")
-          if i == 5:
-             playUrl = url
-          # each format has many other attributes. You can do print(format.keys()) to see all possibilities
-      # url = "https://rr1---sn-ab5l6nrr.googlevideo.com/videoplayback?expire=1695883057&ei=0coUZYmcL6yA_9EPp_uEgAc&ip=69.203.66.242&id=o-AII5g4QE1sIIeVMxkdp_pL4RbX0gSkbc6oTdz_HoWmFK&itag=139&source=youtube&requiressl=yes&mh=y5&mm=31%2C26&mn=sn-ab5l6nrr%2Csn-p5qddn7d&ms=au%2Conr&mv=m&mvi=1&pl=17&initcwndbps=1370000&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=1573892&dur=257.927&lmt=1570341205170835&mt=1695860950&fvip=2&keepalive=yes&fexp=24007246&beids=24472436&c=IOS&txp=5531432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AGM4YrMwRAIgKZyoEoQOpMLFu86BMyn1FrEaEZ-fWnKBneAFjmfLOdICIFtqVERqCFXqBy2I4iPTJmqcDf7VrdnW2kLcSy4CAhBO&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AK1ks_kwRQIhAKTowinLoF17UoXtNkhgy4nWWj9VCbmiZfc1tD9Yd80qAiAmRMvtyPGlxWQTOUXEaHWSD7FA9npwYaA5dN01lA-VCQ%3D%3D"
+        formats = info['formats']
+        audioUrl = ""
+        videoUrl = ""
+        for fmt in formats:
+            url = fmt['url']
+            if contains_tag(url):
+                videoUrl = url
+            # Here we're making an assumption that the 6th format is the audio. This may not always be true.
+            if fmt['format_id'] == '140':  # Typically format '140' is m4a audio. Adjust if needed.
+                audioUrl = url
 
-      player = vlc.MediaPlayer(playUrl)
-      player.play()
+        start_event = threading.Event()  # Synchronization event
+        start_event.clear()  # Ensure event is cleared initially
+
+        audio_thread = threading.Thread(target=helper.play_audio, args=(audioUrl, start_event))
+        video_thread = threading.Thread(target=helper.play_video, args=(videoUrl, start_event))
+
+        audio_thread.start()
+        video_thread.start()
+
+        # time.sleep(10)  # Allow the video thread to initialize
+        # print("after 10 seconds")
+
+        start_event.set()  # Signal both threads to start
+
+        audio_thread.join()  # Wait for audio to finish
+        video_thread.join()  # Wait for video to finish
+
+        player = vlc.MediaPlayer(audioUrl)
+        player.play()
+
+        while player.get_state() != vlc.State.Ended:
+            time.sleep(0.5)
+
+
+
 
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
