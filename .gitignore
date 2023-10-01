@@ -3,3 +3,4 @@
 *.scorer
 venv
 keys.json
+spotipi/resources/apple_emoji.ttc
