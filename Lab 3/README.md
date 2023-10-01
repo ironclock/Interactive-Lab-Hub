@@ -206,6 +206,9 @@ The system should:
 
 # Documentation
 
+
+![UML Sequence Diagram](new-diagram.jpg)
+
 ## Imports and Dependencies
 
 * json: Used to read API keys from keys.json and to convert OpenAI responses into JSON objects for Python processing.
