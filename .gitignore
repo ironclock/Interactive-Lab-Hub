@@ -4,3 +4,4 @@
 venv
 keys.json
 apple_emoji.ttc
+__pycache__/
