@@ -245,18 +245,37 @@ Try to get at least two people to interact with your system. (Ideally, you would
 Answer the following:
 
 ### What worked well about the system and what didn't?
-\*\**your answer here*\*\*
+
+We opted to work with the ChatGPT API to parse the spoken words into instructions. We chose ChatGPT as we were able to prompt it to filter out exactly the content that we wanted to know - whether someone wanted to listen to a specific song, artist, genre, or whether they were in a mood/feeling or whether the input they told us wasnt relevant to playing music at all. ChatGPT also allows the user to speak the widest bredth of information and then Chatty does the insinuation for us to get a specific song from the Spotify API.  
+
+Note: We used GPT-3.5 for the API but noticed that it was repeating songs and not being as creative as expected. We tested the spotipi out with GPT-4.0 which is taught on more diverse dataset and which's temperature can be adjusted (the creativity level of it's responses).
+
+Shai: The user flows that we had defined for our system also worked really well in terms of limiting the scope of possibilities because of using GPT. This was done with clever prompt engineering and a significant amount of trial and error. The prompts we landed on provided us with mostly reliable feedback. 
+
+The video display was also incredibly crisp in showing music videos for the device. This was a design choice, because YouTube's API allowed us to search for videos, whereas Spotify's API (what we originally intended to use), would not allow us to play songs. This landed up being a major win in our favor, having any music video available for use in our device. 
+
+Amando: The system is able to discern mood based on what the user tells it regarding their day. Both users felt that it was kind of magical that the system was pretty spot on in how the user was feeling. However, with the second attempt of our first user, the device advised a song that was not very appropriate in maintaining the mood of the user. 
+The video playback on the Pi was very cool as reported by both users. The screen showed the music video of the associated song that was playing and the audio synced up well with the video. One feedback we received from the users was that the screen was too small to pleasantly enjoy the music video while listening to the audio.
 
 ### What worked well about the controller and what didn't?
 
-\*\**your answer here*\*\*
+Shai: The controller worked significantly effectively at detecting and correctly transforming American male voice input. The controller struggled to recognize voices that had non-American accents. For some group members, it would take multiple attempts for the controller to identify what the group member was saying correctly, and this can cause inconvenience. Further, there was a slight delay in input vs. output of voice to text and visa versa. This was suitable for the context of this lab, however, in a commercial product, this may be less accepted. 
+
+Amando: Using a speaker set up where the microphone is also housed within the same device worked well as it felt like the device was listening and talking back as a single unit. The microphone may not be the clearest at discerning each word that the user said, however the system was able to make up for this and provide a valid response. In the context of this lab, the microphone is adequate but in a more real-world application, it would be better to have a microphone with higher fidelity as feedback from one user. 
 
 ### What lessons can you take away from the WoZ interactions for designing a more autonomous version of the system?
 
-\*\**your answer here*\*\*
+Shai: 
+1) The Wizard of Oz interaction showed our group that voice and conversational-based devices are difficult to prototype. Humans all think in different ways, and conversations are incredibly unpredictable. We learned that it was impossible to count for every possible conversational input. We learned to bound/restrict conversational inputs into categories which helped dictate which flow should be enacted next in the device code.
+2) The Wizard of Oz also showed us that it was important to provide users with feedback, especially if the user is using their voice for input. Without feedback, the user is unable to know if their voice input was captured correctly. We took these lessons and implemented the emoji system, where the user was presented with an emoji based on what the device captured as voice input. 
+
+Amando: An ideal enhancement to the system would involve incorporating weather and temperature considerations, enabling it to determine if the user’s mood could be improved by addressing external atmospheric conditions that may adversely affect their mood. Subsequently, the system would proactively alert the user and suggest a suitable song for the circumstances.
 
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
-\*\**your answer here*\*\*
+Shai: We could use our system to build a database of a user's emotions throughout the day. This will allow for automatic song playing based on historical mood and emotional fluctuations depending on the time of day. Perhaps video and image could also be used as input here as facial expressions and body language are both clear indicators of emotional tone. Using video and images, as well as audio input, with historical data about emotions throughout the day, we can create an automated device that continually and automatically changes background songs depending on the mood given by the user.  
+
+Amando: Besides recording down the moods of the user throughout the day, it could be made more long-term to track monthly fluctuations in mood as well as dealing with seasonal fluctuations of mood. With this dataset, we can make better recommendations with regards to time of the year. 
+Other sensing modalities that would make sense to capture would be the user of the webcam itself on the controller. The webcam would be monitoring the user’s facial expression and when appropriate automatically suggest a song that could elevate the mood of the user. 
 
