@@ -248,6 +248,8 @@ Think about how you want to present the information about what your sensor is se
 
 <img width="352" alt="Screen Shot 2023-10-10 at 4 21 40 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/46b15ff1-b3af-4641-978f-931113d6b9d1">
 
+<img width="352" alt="Screen Shot 2023-10-10 at 4 31 43 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/7b4d1c03-04c1-4c0c-9925-7efc32792d37">
+
 
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
 
