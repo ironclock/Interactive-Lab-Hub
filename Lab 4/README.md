@@ -237,6 +237,12 @@ Here is an example:
 Think about how you want to present the information about what your sensor is sensing! Design a paper display for your project that communicates the state of the Pi and a sensor. Ideally you should design it so that you can slide the Pi out to work on the circuit or programming, and then slide it back in and reattach a few wires to be back in operation.
  
 **\*\*\*Sketch 5 designs for how you would physically position your display and any buttons or knobs needed to interact with it.\*\*\***
+<img width="352" alt="Screen Shot 2023-10-10 at 4 21 33 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/0382c948-875d-43fa-a219-f365448f5e26">
+<img width="543" alt="Screen Shot 2023-10-10 at 4 20 44 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/bf5d5223-26ee-49c2-8e1b-b9bd22cddd97">
+<img width="518" alt="Screen Shot 2023-10-10 at 4 21 05 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/c18283bd-17b7-4173-8c24-4d6bc51e35dc">
+<img width="286" alt="Screen Shot 2023-10-10 at 4 21 23 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/049ed243-675b-4ccf-bcd9-6df4fb2a2a08">
+<img width="354" alt="Screen Shot 2023-10-10 at 4 21 40 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/46b15ff1-b3af-4641-978f-931113d6b9d1">
+
 
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
 
@@ -247,6 +253,13 @@ Think about how you want to present the information about what your sensor is se
 Build a cardboard prototype of your design.
 
 **\*\*\*Document your rough prototype.\*\*\***
+
+
+**
+**\*\*\*Process\*\*\***
+![IMG_1853](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/341298c8-6135-4ccd-848e-17f84d2bd471)
+<img width="918" alt="Screen Shot 2023-10-10 at 4 22 43 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/a01a0212-6c8d-4152-b028-7f484a89c832">
+<img width="917" alt="Screen Shot 2023-10-10 at 4 23 11 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/534bc787-1745-465a-85bc-21ab2c9df6d2">
 
 
 LAB PART 2
