@@ -253,7 +253,6 @@ Think about how you want to present the information about what your sensor is se
 
 <img width="352" alt="Screen Shot 2023-10-10 at 4 21 40 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/46b15ff1-b3af-4641-978f-931113d6b9d1">
 
-<img width="352" alt="Screen Shot 2023-10-10 at 4 31 43 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/7b4d1c03-04c1-4c0c-9925-7efc32792d37">
 
 
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
@@ -272,7 +271,7 @@ Build a cardboard prototype of your design.
 ![IMG_1853](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/341298c8-6135-4ccd-848e-17f84d2bd471)
 <img width="918" alt="Screen Shot 2023-10-10 at 4 22 43 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/a01a0212-6c8d-4152-b028-7f484a89c832">
 <img width="917" alt="Screen Shot 2023-10-10 at 4 23 11 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/534bc787-1745-465a-85bc-21ab2c9df6d2">
-
+<img width="352" alt="Screen Shot 2023-10-10 at 4 31 43 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/7b4d1c03-04c1-4c0c-9925-7efc32792d37">
 
 LAB PART 2
 
