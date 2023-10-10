@@ -179,10 +179,15 @@ You can go to the [SparkFun GitHub Page](https://github.com/sparkfun/Qwiic_Proxi
 ### Physical considerations for sensing
 
 Usually, sensors need to be positioned in specific locations or orientations to make them useful for their application. Now that you've tried a bunch of the sensors, pick one that you would like to use, and an application where you use the output of that sensor for an interaction. For example, you can use a distance sensor to measure someone's height if you position it overhead and get them to stand under it.
-
+***
 **\*\*\*Draw 5 sketches of different ways you might use your sensor, and how the larger device needs to be shaped in order to make the sensor useful.\*\*\***
+![IMG_1850](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/2212746b-5014-42a7-8a69-3ee00764dcda)
 
-**\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
+***
+**\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to answer those questions?\*\*\***
+
+(Rachel M: WIP)
+There were a few sensors we wanted to consider for this lab. Our *favorite* sensors from the ones provided were: a) joystick b) light sensor c) red and green LED buttons. The possibilities of interactive devices using these sensors was a tad overwhelming so we decided to take inspiration from popular culture (because that was bound to limit our scope lol). While brainstorming, we mocked up a couple of these sketches and reviewed the pros and cons of each device before continuing. A few considerations we wanted to keep in mind 
 
 **\*\*\*Pick one of these designs to prototype.\*\*\***
 
