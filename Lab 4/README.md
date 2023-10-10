@@ -260,6 +260,18 @@ Think about how you want to present the information about what your sensor is se
 **\*\*\*Pick one of these display designs to integrate into your prototype.\*\*\***
 
 **\*\*\*Explain the rationale for the design.\*\*\*** (e.g. Does it need to be a certain size or form or need to be able to be seen from a certain distance?)
+After brainstorming several designs we decided to go with the character of `Bender` from `Futurama` and wanted to build a home security concept using his head. Bender has several features that we thought would go well with home security. It has two eyes which could be used as sensors to detect motion (although we will be using a camera and inserting it into his mouth for this purpose). We will be using laser diodes that will be inserted into his eyes and will emit a laser when motion is detected. We will also use the speaker for Bender to alert the user when he's detected them.
+
+Bender will have 3 modes: standby mode, patrol mode, and alarm mode.
+
+**Standby**
+In Standby Mode, Bender will not be actively patrolling and will be essentially 'off', however he can still be controlled and turned on via the display + controls
+
+**Patrol**
+In Patrol Mode, Bender will be constantly and slowly rotating 360 degrees on a platform (powered by a servo). It will be using the camera, microphone, and distance sensor to be sensing the presence of someone in the room. Upon detection it will stop rotating and transition into Alarm Mode.
+
+**Alarm**
+In Alarm Mode, lasers will be flashing from Bender's eyes and he will be speaking to the user as well. Noises and other sounds may also be playing.
 
 Build a cardboard prototype of your design.
 
