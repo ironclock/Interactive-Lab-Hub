@@ -193,10 +193,11 @@ Usually, sensors need to be positioned in specific locations or orientations to 
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to answer those questions?\*\*\***
 
 (Rachel M: WIP)
-There were a few sensors we wanted to consider for this lab. Our *favorite* sensors from the ones provided were: a) joystick b) light sensor c) red and green LED buttons. The possibilities of interactive devices using these sensors was a tad overwhelming so we decided to take inspiration from popular culture (because that was bound to limit our scope lol). While brainstorming, we mocked up a couple of these sketches and reviewed the pros and cons of each device before continuing. A few considerations we wanted to keep in mind 
+There were a few sensors we wanted to consider for this lab. Our *favorite* sensors from the ones provided were: a) camera b) mic c) buttons d) distance sensor . The possibilities of interactive devices using these sensors was a tad overwhelming so we decided to take inspiration from popular culture (because that was bound to limit our scope lol). While brainstorming, we mocked up a couple of these sketches and reviewed the pros and cons of each device before continuing. A few considerations we wanted to keep in mind was the interaction one needed to have with the device in order for the sensor to sense the user's 'input'. 
 
 **\*\*\*Pick one of these designs to prototype.\*\*\***
 
+We decided to prototype the 'Security Bender' idea as it incorporates a few cool sensors and as adults we would want this in our lives as a cool toy and to keep us safe :)
 
 ### Part D
 ### Physical considerations for displaying information and housing parts
