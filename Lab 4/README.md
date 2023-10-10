@@ -183,6 +183,9 @@ Usually, sensors need to be positioned in specific locations or orientations to 
 **\*\*\*Draw 5 sketches of different ways you might use your sensor, and how the larger device needs to be shaped in order to make the sensor useful.\*\*\***
 ![IMG_1850](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/2212746b-5014-42a7-8a69-3ee00764dcda)
 ![IMG_597B08AD62C9-1](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/7735b522-4ed4-4168-9ee0-bfd7f86b81ca)
+![IMG_1415F3FC91E8-1](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/1d47144b-3e62-4bca-9193-3612ebfcdf18)
+![IMG_C1EA1637EF37-1](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/6bb43e0d-582c-4893-b047-52a4d8f790d8)
+
 
 
 ***
