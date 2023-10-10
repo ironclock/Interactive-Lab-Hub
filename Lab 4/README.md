@@ -191,9 +191,14 @@ Usually, sensors need to be positioned in specific locations or orientations to 
 
 ***
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to answer those questions?\*\*\***
-
-(Rachel M: WIP)
 There were a few sensors we wanted to consider for this lab. Our *favorite* sensors from the ones provided were: a) camera b) mic c) buttons d) distance sensor . The possibilities of interactive devices using these sensors was a tad overwhelming so we decided to take inspiration from popular culture (because that was bound to limit our scope lol). While brainstorming, we mocked up a couple of these sketches and reviewed the pros and cons of each device before continuing. A few considerations we wanted to keep in mind was the interaction one needed to have with the device in order for the sensor to sense the user's 'input'. 
+These sketches raised concerns about how to possibly 3D print this device for our actual implementation in the second part of the lab. We designed a 3D version equivalent and realized we had to scale down our model to have this built in a realistic timeframe. We had to place certain sensors that we planned to use in different places to see which made the most sense. For our physical prototype, we have to create a frame that would be the same size as the raspberry pi and the various sensors to decide where the parts most logically make sense to placed physically. Here are some further questions that were raised:
+1) How are the various components (camera, microphone, distance sensor, OLED screen) powered and connected within the Bender head? - We decided that we would need to create a hollow head shell so that we could feed wires inside to the various parts.
+2) Are all components integrated into a single board, or are they separate modules? We decided that for this to work best, we would need to have separate modules
+3) Is there any feedback mechanism (e.g., audio or visual cues) to indicate the device’s status or any detected intrusions? We decided that we would need to use buttons to turn off the alarm
+4) We asked how far the distance sensor would reach. We realized that the distance sensor does not detect far away movements, hence we included the camera as an additional sensor
+5) Due to the fact that we would like the Bender head to rotate on a small plate, we have concerns about the weight of the device. During prototyping, we, again, realized that we would require a hollow shell for the head to reduce the weight.
+6) We realized in the sketches and prototyping that the device would have a blind spot behind the head. Because of this, we have decided to potentially use the microphone as an additional sensor to detect noises 
 
 **\*\*\*Pick one of these designs to prototype.\*\*\***
 
