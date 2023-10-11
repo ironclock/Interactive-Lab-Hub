@@ -331,6 +331,12 @@ Build a cardboard prototype of your design.
 <img width="917" alt="Screen Shot 2023-10-10 at 4 23 11 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/534bc787-1745-465a-85bc-21ab2c9df6d2">
 <img width="352" alt="Screen Shot 2023-10-10 at 4 31 43 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/7b4d1c03-04c1-4c0c-9925-7efc32792d37">
 
+**\*\*\*Prototype\*\*\***
+![IMG_6525](https://github.com/ironclock/Interactive-Lab-Hub/assets/70418227/580a9adf-7d89-4f18-81ff-91d3a5c1aff1)
+![IMG_6526](https://github.com/ironclock/Interactive-Lab-Hub/assets/70418227/eabf941d-3234-462f-a3a6-6f9cecf507d6)
+
+
+
 LAB PART 2
 
 ### Part 2
