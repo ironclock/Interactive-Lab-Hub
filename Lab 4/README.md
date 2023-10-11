@@ -191,7 +191,50 @@ Usually, sensors need to be positioned in specific locations or orientations to 
 
 ***
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to answer those questions?\*\*\***
-There were a few sensors we wanted to consider for this lab. Our *favorite* sensors from the ones provided were: a) camera b) mic c) buttons d) distance sensor . The possibilities of interactive devices using these sensors was a tad overwhelming so we decided to take inspiration from popular culture (because that was bound to limit our scope lol). While brainstorming, we mocked up a couple of these sketches and reviewed the pros and cons of each device before continuing. A few considerations we wanted to keep in mind was the interaction one needed to have with the device in order for the sensor to sense the user's 'input'. 
+
+There were a few sensors we wanted to consider for this lab. 
+
+Our *favorite* sensors from the ones provided were: 
+
+a) Camera 
+
+b) Mic 
+
+c) Buttons 
+
+d) Distance sSensor
+
+The possibilities of interactive devices using these sensors was a bit overwhelming, so we decided to take inspiration from popular culture (because that was bound to limit our scope). While brainstorming, we mocked up a couple of these sketches and reviewed the pros and cons of each device before continuing. An important consideration we wanted to keep in mind was the interaction that we needed to have with the device, for the sensor to sense the user's 'input'. 
+
+**From each sketch, here are some questions that arose:**
+
+Bender Security:
+1. What is the maximum distance the distance sensor can detect?
+
+Bender Toilet:
+1. How does the sensor detect the position of the toilet lid?
+
+Wizarding Hat:
+1. How does the light sensor differentiate between someone wearing the hat and other environmental changes?
+
+Scooby-Snacks: Sandwich Selector: 
+1. How does the joystick interface with the selection process?
+2. What happens once a sandwich is selected? Is it just an order or is there an actual physical sandwich-making component involved?
+
+Bruno Bowl:
+1. How does the bowl ensure it doesn’t overfill, especially if there's a malfunction?
+
+**To physically prototype and answer most of these question, here is what we would need to understand:**
+
+Bender Security: Test the logic that will control Bender Security's laser activation and table rotation based on the distance sensor's feedback. 
+
+Bender Toilet: Test the lid sensor and feedback mechanism, we would need users to interact with the Bender Toilet to see if the functinality is intuitive and effective.
+
+Wizarding Hat:Test the light sensor's sensitivity and differentiate its response based on external triggers.
+
+Sandwich Selector: Test a functional joystick and feedback mechanism that would be useful to understand the user experience.
+
+Bruno Bowl: Test spout and sensor interaction through a functioning spout mechanism integrated with a sensor.
 
 **\*\*\*Pick one of these designs to prototype.\*\*\***
 
