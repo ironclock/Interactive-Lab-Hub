@@ -202,9 +202,9 @@ b) Mic
 
 c) Buttons 
 
-d) Distance sSensor
+d) Distance Sensor
 
-The possibilities of interactive devices using these sensors was a bit overwhelming, so we decided to take inspiration from popular culture (because that was bound to limit our scope). While brainstorming, we mocked up a couple of these sketches and reviewed the pros and cons of each device before continuing. An important consideration we wanted to keep in mind was the interaction that we needed to have with the device, for the sensor to sense the user's 'input'. 
+The possibilities of interactive devices using these sensors was a bit overwhelming, so we decided to take inspiration from popular culture (because that was bound to limit our scope). While brainstorming, we mocked up a couple of these sketches and reviewed the pros and cons of each device before continuing. An important consideration we wanted to keep in mind was the physical interaction that we needed to have with the device, in order for the sensor to sense the user's 'input'. 
 
 **From each sketch, here are some questions that arose:**
 
@@ -224,6 +224,8 @@ Scooby-Snacks: Sandwich Selector:
 Bruno Bowl:
 1. How does the bowl ensure it doesn’t overfill, especially if there's a malfunction?
 
+
+***
 **To physically prototype and answer most of these question, here is what we would need to understand:**
 
 Bender Security: Test the logic that will control Bender Security's laser activation and table rotation based on the distance sensor's feedback. 
@@ -236,9 +238,17 @@ Sandwich Selector: Test a functional joystick and feedback mechanism that would 
 
 Bruno Bowl: Test spout and sensor interaction through a functioning spout mechanism integrated with a sensor.
 
+***
 **\*\*\*Pick one of these designs to prototype.\*\*\***
 
-We decided to prototype the 'Security Bender' idea as it incorporates a few cool sensors and as adults we would want this in our lives as a cool toy and to keep us safe :)
+![bender picture](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/63d0f2a6-9443-4fbd-92e9-85be597f2cf8)
+
+Video:<br>
+[![youtube video](http://img.youtube.com/vi/hRy3MPdV0WE/0.jpg)](http://www.youtube.com/watch?v=hRy3MPdV0WE)
+
+
+After brainstorming several designs we decided to go with a home security concept using Bender's head - called `Security Bender`. The premise of our idea is based off of the beloved character - 'Bender' from Futurama. Bender is known to have many vices, one which is stealing. Since Bender loves stealing, we thought it would be ironic to create a 'Security Bender' which is activated through distance, sound and camera. While in Patrol mode, if someone passes Security Bender, he *activates* and acts as a warning for the person who isn't supposed to be there i.e. presumably stealing something. We wanted to create Security Bender as it incorporates a few sensors and adults want this as a cool toy and to keep them "safe" :)
+
 
 ### Part D
 ### Physical considerations for displaying information and housing parts
@@ -276,7 +286,8 @@ Here is an example:
 <img src="https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/blob/2020Fall/images/horoscope.png?raw=true"  width="250"/>
 
 Think about how you want to present the information about what your sensor is sensing! Design a paper display for your project that communicates the state of the Pi and a sensor. Ideally you should design it so that you can slide the Pi out to work on the circuit or programming, and then slide it back in and reattach a few wires to be back in operation.
- 
+
+***
 **\*\*\*Sketch 5 designs for how you would physically position your display and any buttons or knobs needed to interact with it.\*\*\***
 
 <img width="352" alt="Screen Shot 2023-10-10 at 4 21 33 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/0382c948-875d-43fa-a219-f365448f5e26"><br>
@@ -290,10 +301,10 @@ Think about how you want to present the information about what your sensor is se
 <img width="352" alt="Screen Shot 2023-10-10 at 4 21 40 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/46b15ff1-b3af-4641-978f-931113d6b9d1">
 
 
-
+***
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
 
-These sketches raised concerns about how to possibly 3D print this device for our actual implementation in the second part of the lab. We designed a 3D version equivalent and realized we had to scale down our model to have this built in a realistic timeframe. We had to place certain sensors that we planned to use in different places to see which made the most sense. For our physical prototype, we have to create a frame that would be the same size as the raspberry pi and the various sensors to decide where the parts most logically make sense to placed physically. Here are some further questions that were raised:
+These sketches raised concerns about how to possibly 3D print this device for our actual implementation in the second part of the lab. We designed a 3D version equivalent and realized we had to scale down our model to have this built in a realistic timeframe. We had to place certain sensors that we planned to use in different places to see which made the most sense. For our final physical prototype, we have to create a frame that would be the same size as the raspberry pi and the various sensors to decide where the parts most logically make sense to placed physically. Here are some further questions that were raised:
 
 1) How are the various components (camera, microphone, distance sensor, OLED screen) powered and connected within the Bender head? - We decided that we would need to create a hollow head shell so that we could feed wires inside to the various parts.
 2) Are all components integrated into a single board, or are they separate modules? We decided that for this to work best, we would need to have separate modules
@@ -302,11 +313,9 @@ These sketches raised concerns about how to possibly 3D print this device for ou
 5) Due to the fact that we would like the Bender head to rotate on a small plate, we have concerns about the weight of the device. During prototyping, we, again, realized that we would require a hollow shell for the head to reduce the weight.
 6) We realized in the sketches and prototyping that the device would have a blind spot behind the head. Because of this, we have decided to potentially use the microphone as an additional sensor to detect noises 
 
-
-**\*\*\*Pick one of these display designs to integrate into your prototype.\*\*\***
-
-**\*\*\*Explain the rationale for the design.\*\*\*** (e.g. Does it need to be a certain size or form or need to be able to be seen from a certain distance?)
-After brainstorming several designs we decided to go with the character of `Bender` from `Futurama` and wanted to build a home security concept using his head. Bender has several features that we thought would go well with home security. It has two eyes which could be used as sensors to detect motion (although we will be using a camera and inserting it into his mouth for this purpose). We will be using laser diodes that will be inserted into his eyes and will emit a laser when motion is detected. We will also use the speaker for Bender to alert the user when he's detected them.
+***
+**\*\*\*Explain the rationale for the design.\*\*\*** 
+Bender has several features that we thought would go well with home security. It has two eyes which could be used as sensors to detect motion (although we will be using a camera and inserting it into his mouth for this purpose). We will be using laser diodes that will be inserted into his eyes and will emit a laser when motion is detected. We will also use the speaker for Bender to alert the user when he's detected them.
 
 Bender will have 3 modes: standby mode, patrol mode, and alarm mode.
 
@@ -319,21 +328,25 @@ In Patrol Mode, Bender will be constantly and slowly rotating 360 degrees on a p
 **Alarm**
 In Alarm Mode, lasers will be flashing from Bender's eyes and he will be speaking to the user as well. Noises and other sounds may also be playing.
 
-Build a cardboard prototype of your design.
+***
+**\*\*\*Prototype\*\*\***
+![IMG_6525](https://github.com/ironclock/Interactive-Lab-Hub/assets/70418227/580a9adf-7d89-4f18-81ff-91d3a5c1aff1)
+![IMG_6526](https://github.com/ironclock/Interactive-Lab-Hub/assets/70418227/eabf941d-3234-462f-a3a6-6f9cecf507d6)
 
-**\*\*\*Document your rough prototype.\*\*\***
+Our cardboard prototype proved helpful to discuss where each sensor would be placed. 
+- We wanted to camera to be inconspicuous and therefore was places inside Bender's mouth - where a space was cut out precisely for this purpose. 
+- The Distance sensor will be on Bender's forehead as it needs to be able to sense any passing movement and cannot be obstructed
+- Laser beam lights will turn on from Bender's eyes to lend to the feel of Bender being on the lookout
+- We decided to strategically place the display screen on the back of Bender's head as we hope Bender will be rotating on a 360 degree turntable of sorts and was crowding on the front of his face. 
+- The button/joystick next to the display is for setting/resetting the various modes (patrol, standby, alarm) and it seemed logical to place it next to the display screen as this button cotrols what it being seen on the screen. 
 
 
-**
+***
 **\*\*\*Process\*\*\***
 ![IMG_1853](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/341298c8-6135-4ccd-848e-17f84d2bd471)
 <img width="918" alt="Screen Shot 2023-10-10 at 4 22 43 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/a01a0212-6c8d-4152-b028-7f484a89c832">
 <img width="917" alt="Screen Shot 2023-10-10 at 4 23 11 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/534bc787-1745-465a-85bc-21ab2c9df6d2">
 <img width="352" alt="Screen Shot 2023-10-10 at 4 31 43 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/7b4d1c03-04c1-4c0c-9925-7efc32792d37">
-
-**\*\*\*Prototype\*\*\***
-![IMG_6525](https://github.com/ironclock/Interactive-Lab-Hub/assets/70418227/580a9adf-7d89-4f18-81ff-91d3a5c1aff1)
-![IMG_6526](https://github.com/ironclock/Interactive-Lab-Hub/assets/70418227/eabf941d-3234-462f-a3a6-6f9cecf507d6)
 
 
 
