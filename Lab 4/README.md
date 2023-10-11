@@ -1,6 +1,6 @@
 # Ph-UI!!!
 
-**Shai Aarons, Ariana Bhigroog, Jon Caceres, Rachel Minkowitz, Amando Xu**
+**Shai Aarons (sla88), Ariana Bhigroog (ab2959), Jon Caceres (jc3569), Rachel Minkowitz (rhm256), Amando Xu (ax45)**
 
 
 For lab this week, we focus both on sensing, to bring in new modes of input into your devices, as well as prototyping the physical look and feel of the device. You will think about the physical form the device needs to perform the sensing as well as present the display or feedback about what was sensed. 
