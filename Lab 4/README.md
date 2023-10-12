@@ -415,3 +415,4 @@ Document all the prototypes and iterations you have designed and worked on! Agai
 * "Works like": shows what the device can do
 * "Acts like": shows how a person would interact with the device
 
+(Rachel:WIP) We decided to use 360 degree rotation of the Servo motor as the feedback to the user of the interaction.  
