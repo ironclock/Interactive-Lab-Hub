@@ -86,11 +86,46 @@ print("pooop")
 print(net.getUnconnectedOutLayers())
 output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
 
+def oscillate_move(stop_event):
+    """Oscillate the servo between defined angles, stopping in between."""
+    while not stop_event.is_set():
+        # Move from 100 to 105
+        for angle in range(100, 106, 1):
+            if stop_event.is_set():
+                return
+            print("forward : ", angle)
+            servo.angle = angle
+            time.sleep(0.5)
+
+        # Stop by setting to 90
+        servo.angle = 90
+        time.sleep(0.5)  # Pause
+
+        # Move from 80 to 75
+        for angle in np.arange(80, 78, -0.5):
+            if stop_event.is_set():
+                return
+            print("reverse : ", angle)
+            servo.angle = angle
+            time.sleep(0.5)
+
+        # Stop by setting to 90
+        servo.angle = 90
+        time.sleep(0.5)  # Pause before next loop iteration
+
 def test_camera_with_detection():
-    # servo.angle = 180
+    import threading
+
+    stop_event = threading.Event()  # This will help us control the oscillate_move function
+
+    # Start the servo oscillation in a separate thread
+    servo_thread = threading.Thread(target=oscillate_move, args=(stop_event,))
+    servo_thread.start()
+
     global last_time_played
     cap = cv2.VideoCapture(0)
     sound_played = False  # Initialize the flag
+
     while True:
         ret, frame = cap.read()
         height, width, channels = frame.shape
@@ -111,6 +146,10 @@ def test_camera_with_detection():
                 current_time = time.time()
                 if confidence > 0.5 and class_id == 0:  # Class ID 0 is for person in the coco dataset
                     human_detected = True
+
+                    # If human is detected, set the stop event
+                    stop_event.set()
+
                     center_x = int(detection[0] * width)
                     center_y = int(detection[1] * height)
                     w = int(detection[2] * width)
@@ -123,7 +162,6 @@ def test_camera_with_detection():
                     cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
                     if human_detected and (current_time - last_time_played > COOLDOWN):
-                        # servo.angle = 90
                         alert_sound.play()
                         turn_on_laser(LASER_1_PIN)
                         turn_on_laser(LASER_2_PIN)
@@ -136,6 +174,8 @@ def test_camera_with_detection():
         display.image(frame_pil)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
+            stop_event.set()  # Ensure the oscillate_move function is stopped when exiting
+            servo_thread.join()
             break
 
     cap.release()
