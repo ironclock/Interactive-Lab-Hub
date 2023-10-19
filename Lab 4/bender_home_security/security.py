@@ -74,7 +74,8 @@ buttonB.switch_to_input()
 
 # Sound initialization
 pygame.mixer.init()
-alert_sound = pygame.mixer.Sound('/home/joncaceres/Interactive-Lab-Hub/Lab 4/bender_home_security/media/kill_all_humans.wav')
+alert_sound = pygame.mixer.Sound('/home/joncaceres/Interactive-Lab-Hub/Lab 4/bender_home_security/media/kill_all_humans_loud_2.wav')
+alert_sound.set_volume(1.0)
 
 last_time_played = 0  # Global variable to store the last time the audio was played
 COOLDOWN = 5  # Time (in seconds) to wait before playing the sound again
@@ -92,6 +93,7 @@ def oscillate_move(stop_event):
         # Move from 100 to 105
         for angle in range(100, 106, 1):
             if stop_event.is_set():
+                servo.angle = 90
                 return
             print("forward : ", angle)
             servo.angle = angle
@@ -104,6 +106,7 @@ def oscillate_move(stop_event):
         # Move from 80 to 75
         for angle in np.arange(80, 78, -0.5):
             if stop_event.is_set():
+                servo.angle = 90
                 return
             print("reverse : ", angle)
             servo.angle = angle
@@ -166,6 +169,9 @@ def test_camera_with_detection():
                         turn_on_laser(LASER_1_PIN)
                         turn_on_laser(LASER_2_PIN)
                         last_time_played = current_time
+                        stop_event.set()  # Ensure the oscillate_move function is stopped when exiting
+                        servo_thread.join()
+                        break
 
         frame = cv2.resize(frame, (240, 135))
         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -174,6 +180,10 @@ def test_camera_with_detection():
         display.image(frame_pil)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
+            servo.angle = 90
+            servo.angle = 90
+            servo.angle = 90
+            servo.angle = 90
             stop_event.set()  # Ensure the oscillate_move function is stopped when exiting
             servo_thread.join()
             break
@@ -186,6 +196,11 @@ if __name__ == "__main__":
         while True:
             test_camera_with_detection()
     except KeyboardInterrupt:
+        servo.angle = 90
+        servo.angle = 90
+        servo.angle = 90
+        servo.angle = 90
+        servo.angle = 90
         print("Script terminated by user.")
         turn_off_laser(LASER_1_PIN)
         turn_off_laser(LASER_2_PIN)
