@@ -410,12 +410,8 @@ The following resources are good starts on how to stream video:
 ### Part G
 ### Record
 
-Document all the prototypes and iterations you have designed and worked on! Again, deliverables for this lab are writings, sketches, photos, and videos that show what your prototype:
-* "Looks like": shows how the device should look, feel, sit, weigh, etc.
-* "Works like": shows what the device can do
-* "Acts like": shows how a person would interact with the device
 
-(Rachel:WIP) 
+Link to video: https://drive.google.com/file/d/1uodnFWXVHgakAVSD_uM-AWcF2z8MqYu_/view?usp=share_link
 
 Bender Security is a unique and playful security device designed to protect your space. Combining elements of science fiction and modern technology, this 3D printed Bender head is a multi-functional guardian that "Looks like" an inconspicuos robotic character, "Works like" a security robot, and "Acts like" an interactive motion (?human?) detection security system.
 
@@ -455,6 +451,8 @@ Imagine a world where we could have *Remote Access* to Bender Security. The devi
 
 *Security Response:* When the device senses motion, it responds by stopping its rotation, lighting up its laser eyes, and delivering the iconic "Kill all humans" line. This response is designed to deter potential intruders.
 
+Video of interaction only: https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/09f8559a-3ec3-4387-bd19-8c941297bb81
+
 ***
 **Reflection**
 This lab proved to be a journey. At first we started off wanting to incorporate everything that we discussed in Part A, but as time went on we scaled our idea down - enough that it was still super cool, but doable. To start, Jon began 3D printing Bender's head in the beginning of the week. Looking back, coding the different sensors to interact with each other was easy in comparison to the physical assembly. The hardest part of this lab was incorporating all the hardware components into Bender's head harmoniously. We did not expect all the physical components to be so big or 'wirey' and things may have 'looked better in theory'. We started with making sure that the camera was suspended inside Bender's head so that the camera was viewing the world without being obstructed by Bender's mouth. This proved to be challenging, but with some dowel action and extra strength velcro, camera was situated correctly. Incorporating the lasers was also complicated as they had more wiring than anticipated. We initially thought that the pi would be situated inside Bender's head - thereby being concealed, but due to limited space, we opted to leave the pi outside. This ended up working in our favor as we had the video streamed to the pi display and we could test the camera through that. The last thing that was complicated to assemble was the servo motor and base wooden board. Since the motor is a tad off center from the pack it was essential to balance Bender's head with all its components on the board while ensuring that when the board rotates, Bender's head is significantly balanced and would not tip over. With the help of hot glue and tape, Bender's head is secure on the platform and will hopefully stand the test of time. 
@@ -470,3 +468,5 @@ This lab proved to be a journey. At first we started off wanting to incorporate 
 |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/f613737d-d737-4086-a221-f9902060847f"> |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/a22242e8-b455-4345-90a4-b772c044f284">|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/6706204d-3a59-471e-86b1-b1065c892c0d">|
 |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/096a7dd8-a039-4239-bf59-ec5b7a537089"> |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/7f606f4f-4c10-4577-ad8e-e3b778cab894">|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/25c4529b-d7b9-468d-bd3e-508bf7961152">|
 |<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/b044dd03-ff94-4a6e-b3f6-910f1cfb46d8">  |  <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/2c9b1512-4f8b-45bf-ba5e-d56ff6a2e024">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/7e6c6609-15f1-448f-a3ac-b35b418c5422">|
+|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/ec4029cd-2316-4c9e-8ab8-a6655c9422ac">  |  
+
