@@ -451,7 +451,11 @@ Imagine a world where we could have *Remote Access* to Bender Security. The devi
 
 *Security Response:* When the device senses motion, it responds by stopping its rotation, lighting up its laser eyes, and delivering the iconic "Kill all humans" line. This response is designed to deter potential intruders.
 
-Video of interaction only: https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/09f8559a-3ec3-4387-bd19-8c941297bb81
+Video of interaction only: https://github.com/ironclock/Interactive-Lab-Hub/assets/70418227/e6bae1a1-4881-43de-b010-b3b5a9bbe373
+https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/09f8559a-3ec3-4387-bd19-8c941297bb81
+
+
+
 
 ***
 **Reflection**
