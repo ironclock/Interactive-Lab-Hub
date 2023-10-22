@@ -410,8 +410,7 @@ The following resources are good starts on how to stream video:
 ### Part G
 ### Record
 
-
-Link to video: https://drive.google.com/file/d/1uodnFWXVHgakAVSD_uM-AWcF2z8MqYu_/view?usp=share_link
+[VIDEO OF PROCESS AND DEMO](https://drive.google.com/file/d/1SH8n51JZRg1f9AlG9LcrBl-lvNz1HhX7/view?usp=sharing)
 
 Bender Security is a unique and playful security device designed to protect your space. Combining elements of science fiction and modern technology, this 3D printed Bender head is a multi-functional guardian that "Looks like" an inconspicuos robotic character, "Works like" a security robot, and "Acts like" an interactive motion (?human?) detection security system.
 
@@ -428,7 +427,7 @@ Bender Security is a unique and playful security device designed to protect your
 
 *Color Scheme:* The Bender head retains the character's metallic gray color with black accents and shiny white teeth. After the Bender head was sanded down to remove any residual 3D printing imperfections, this color was accomplished using spray paint and spray painting skills. 
 
-*Weight and Dimensions:* The entirety of the device (including the raspeberry pi and camera) weighs about 2 pounds and measures 19.5 cm in height, ?? in width, and ?? in depth. We wanted Bender Security to be small enough to be propped on a desktop without taking up too much space and be light enough that it's portable and can be easily brought to a location that you want to monitor at the moment. 
+*Weight and Dimensions:* The entirety of the device (including the raspeberry pi and camera) weighs about 2 pounds and measures 24.765cm in height, 6.5cm in width, and 6cm in length. We wanted Bender Security to be small enough to be propped on a desktop without taking up too much space and be light enough that it's portable and can be easily brought to a location that you want to monitor at the moment. 
 
 
 **2. Works Like**
@@ -462,6 +461,9 @@ This lab proved to be a journey. At first we started off wanting to incorporate 
 
 ***
 **Process:**
+
+[VIDEO OF PROCESS & DEMO](https://drive.google.com/file/d/1SH8n51JZRg1f9AlG9LcrBl-lvNz1HhX7/view?usp=sharing)
+
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/75b4bad1-b57f-4b60-b8be-dca3803a16bf"> |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/4b6ffa98-65ae-4509-87f0-8369a8b8d0b9">|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/01f30489-2eec-4eac-a0ab-ea859a38a4d9">|
