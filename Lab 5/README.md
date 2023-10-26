@@ -136,8 +136,13 @@ In an earlier version of this class students experimented with foundational comp
 * This can be as simple as the boat detector showen in a previous lecture from Nikolas Matelaro.
 * Try out different interaction outputs and inputs.
 
-
 **\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\***
+
+**
+**Ideation**
+1. E-cig/Vape recognizer - this model would recognize gestures that people who e-cig inconspicuously make
+2. Calorie counter - this model would look at a food item and tell the user whether it's a healthy option or not
+3. Watering the "Plants" - this model would recognize whether a plant needs to be watered according to leaf health and would spray the plant with water accordingly  
 
 ### Part C
 ### Test the interaction prototype
