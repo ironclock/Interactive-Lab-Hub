@@ -136,13 +136,25 @@ In an earlier version of this class students experimented with foundational comp
 * This can be as simple as the boat detector showen in a previous lecture from Nikolas Matelaro.
 * Try out different interaction outputs and inputs.
 
-**\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\***
-
-**
+*
 **Ideation**
 1. E-cig/Vape recognizer - this model would recognize gestures that people who e-cig inconspicuously make
 2. Calorie counter - this model would look at a food item and tell the user whether it's a healthy option or not
-3. Watering the "Plants" - this model would recognize whether a plant needs to be watered according to leaf health and would spray the plant with water accordingly  
+3. Watering the "Plants" - this model would recognize whether a plant needs to be watered according to leaf health and would spray the plant with water accordingly
+
+**Experimentation**
+We had initially started teaching the model based on healthy and unhealthy leaf datasets. We started with using 150 images per class but then saw that the set needed to be enlarged for the model to recognize and classify... When we added additional data, the model was able to discern between healthy and unhealthy leaves, but was not able to use it's knowledge to identify healthy/unhealthy _plants_. <br>
+<img width="901" alt="Screen Shot 2023-10-26 at 7 02 25 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/ac4461ee-5b43-482f-8306-57ce27b89405">
+
+When we realized that our dataset was not purposeful for our interaction, we started looking for healthy/unhealthy plant datasets... Initially we could not find a proper dataset so were going to pivot. Our pivoted idea was to train the models on house-plants and cacti. When the camera would identify a house-plant it would pray water and when it would identify a cactus, it wouldnt spray anything. In search of a houseplant dataset we found a perfect dataset for our initial healthy/unhealthy plant idea :) 
+
+
+Our dataset is from Kaggle: "Healthy and Wilted Houseplant Images" created by RUSSELL CHAN, https://www.kaggle.com/datasets/russellchan/healthy-and-wilted-houseplant-images
+The data includes:
+1. 450 images of healthy plants
+2. 450 images of wilted plants
+
+**Interaction**
 
 ### Part C
 ### Test the interaction prototype
