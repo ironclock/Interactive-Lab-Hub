@@ -142,7 +142,15 @@ In an earlier version of this class students experimented with foundational comp
 **Ideation**
 1. E-cig/Vape recognizer - this model would recognize gestures that people who e-cig inconspicuously make
 2. Calorie counter - this model would look at a food item and tell the user whether it's a healthy option or not
-3. Watering the "Plants" - this model would recognize whether a plant needs to be watered according to leaf health and would spray the plant with water accordingly  
+3. Watering the "Plants" - this model would recognize whether a plant needs to be watered according to leaf health and would spray the plant with water accordingly
+
+We had initially started teaching the model based on healthy and unhealthy leaf datasets. We started with using 150 images per class but then saw that the set needed to be enlarged for the model to recognize and classify... When we added additional data, the model was able to discern between healthy and unhealthy leaves, but was not able to use it's knowledge to identify healthy/unhealthy _plants_. When we hit this roadblock we started looking for healthy/unhealthy plant datasets... Initially we could not find a proper dataset so were going to pivot. Our pivoted idea was to train the models on house-plants and cacti. When the camera would identify a house-plant it would pray water and when it would identify a cactus, it wouldnt spray anything. In search of a houseplant dataset we found a perfect dataset for our initial healthy/unhealthy plant idea :) 
+
+Our dataset is from Kaggle: "Healthy and Wilted Houseplant Images" created by RUSSELL CHAN, https://www.kaggle.com/datasets/russellchan/healthy-and-wilted-houseplant-images
+The data includes:
+1. 450 images of healthy plants
+2. 450 images of wilted plants
+
 
 ### Part C
 ### Test the interaction prototype
