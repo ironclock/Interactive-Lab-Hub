@@ -127,6 +127,9 @@ def test_camera_with_detection():
 
     global last_time_played
     cap = cv2.VideoCapture(0)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+
     sound_played = False  # Initialize the flag
 
     while True:
@@ -134,7 +137,7 @@ def test_camera_with_detection():
         height, width, channels = frame.shape
 
         # Detect objects
-        blob = cv2.dnn.blobFromImage(frame, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
+        blob = cv2.dnn.blobFromImage(frame, 0.00392, (288, 288), (0, 0, 0), True, crop=False)
         net.setInput(blob)
         outs = net.forward(output_layers)
 
