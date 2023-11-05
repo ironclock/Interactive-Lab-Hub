@@ -227,15 +227,19 @@ Following exploration and reflection from Part 1, finish building your interacti
 Here's a Video of each component brokendown:
 
 **\*\*\*Moisture Sensor\*\*\***
+
 https://drive.google.com/file/d/1eqbxqAvv343066Td4OO1WjZsW_Xuc21W/view?usp=share_link
 
 **\*\*\*Automatic Light Video\*\*\***
+
 https://drive.google.com/file/d/1dsAs4F7MjBKgOcybmGip9qj8R14dnYSH/view?usp=share_link
 
 **\*\*\*Automatic Light Sensor Video\*\*\***
+
 https://drive.google.com/file/d/1EDrI4Cds7Yf1rL8-tIJCDwsCeZeUTWtd/view?usp=share_link
 
 **\*\*\*Automatic Spray Bottle\*\*\***
+
 https://drive.google.com/file/d/1dsAs4F7MjBKgOcybmGip9qj8R14dnYSH/view?usp=share_link
 
 **\*\*\*Include a short video demonstrating the finished result.\*\*\***
