@@ -250,6 +250,7 @@ https://drive.google.com/file/d/1jSBQGLXfM9FmcNAdjuEmpqtBh4voe7LB/view?usp=share
 
 
 **\*\*\*Process walkthrough\*\*\***
+
 Our project script does several things:
 
 - It runs a computer vision model and a camera that detects whether our house plant is healthy/unhealthy and displays the status on the OLED screen:
