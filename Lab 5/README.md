@@ -258,6 +258,23 @@ Our project script does several things:
 3. It flips on a switch to turn on a light sensor when the LUX value is below 50, that is the threshold specified for indicating darkness. 
 4. It flips off the switch to turn off the light sensor when the LUX value is above 50, that is the threshold specified for indicating light.
 
-Here is a breakdown of each script and what it does:
+The 'final_run.py' script is a script combining all the moving parts of our project. It controls lighting and watering systems, utilizes computer vision for plant health monitoring, and displays the status on an OLED screen. 
+
+Here's a breakdown of its functions:
+
+- Hardware Interface: It manages hardware components including servos, a light sensor, a moisture sensor, and an OLED display via I2C and GPIO interfaces on a microcontroller platform like Raspberry Pi.
+
+- Servo Control: Two servos are configured to operate a light switch and a water spray mechanism.
+
+- Sensor Reading: It reads ambient light levels and soil moisture content to maintain appropriate growing conditions.
+
+- Computer Vision: The script uses a pre-trained machine learning model to analyze images from a camera and determine the health of the plant.
+
+- Display Output: Information about the plant's health is displayed on an OLED screen.
+
+- Main Operational Loop: The script runs in a continuous loop, adjusting the light and water spray based on sensor readings and updating the plant health status on the OLED display.
+
+The script is intended for an automated gardening system, ensuring plants receive optimal care with minimal human intervention.
+
 
 
