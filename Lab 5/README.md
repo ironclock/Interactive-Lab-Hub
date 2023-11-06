@@ -253,8 +253,11 @@ https://drive.google.com/file/d/1jSBQGLXfM9FmcNAdjuEmpqtBh4voe7LB/view?usp=share
 
 Our project script does several things:
 
-- It runs a computer vision model and a camera that detects whether our house plant is healthy/unhealthy and displays the status on the OLED screen:
-- It uses a moisture sensor to detect moisture of the soil. If it detects less than 55% moisture, it triggers a servo that sprays water. Once the moisture percentage is above 55%, it deactivates the servo
-- It flips on a switch when the light sensor detects darkness
-- It flips off the switch when the light sensor detects light
-- 
+1. It runs a computer vision model with camera dection to classify whether our house plant is healthy/unhealthy, and it displays the classification on the OLED screen.
+2. It utilizes a moisture sensor to detect moisture of the soil. If it detects less than 55% moisture, it triggers a servo that sprays water (indicating that the plant is lacking water). Once the moisture percentage is above 55%, it deactivates the servo indicating that the plant is not in need of moisture at the moment.
+3. It flips on a switch to turn on a light sensor when the LUX value is below 50, that is the threshold specified for indicating darkness. 
+4. It flips off the switch to turn off the light sensor when the LUX value is above 50, that is the threshold specified for indicating light.
+
+Here is a breakdown of each script and what it does:
+
+
