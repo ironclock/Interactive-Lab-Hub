@@ -1,6 +1,12 @@
-from keras.models import load_model  # TensorFlow is required for Keras to work
-import cv2  # Install opencv-python
+import time
+import subprocess
+import board
+import busio
+import adafruit_ssd1306
+from PIL import Image, ImageDraw, ImageFont
+import cv2
 import numpy as np
+from keras.models import load_model
 
 # Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
@@ -9,43 +15,71 @@ np.set_printoptions(suppress=True)
 model = load_model("keras_Model.h5", compile=False)
 
 # Load the labels
-class_names = open("labels.txt", "r").readlines()
+class_names = [line.strip() for line in open("labels.txt", "r").readlines()]
 
-# CAMERA can be 0 or 1 based on default camera of your computer
-camera = cv2.VideoCapture(0)
+# Create the I2C interface.
+i2c = busio.I2C(board.SCL, board.SDA)
 
-while True:
-    # Grab the webcamera's image.
-    ret, image = camera.read()
+# Create the SSD1306 OLED class. Make sure to use the correct width and height.
+oled = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c)
 
-    # Resize the raw image into (224-height,224-width) pixels
-    image = cv2.resize(image, (224, 224), interpolation=cv2.INTER_AREA)
+# Load default font.
+font = ImageFont.load_default()
 
-    # Show the image in a window
-    cv2.imshow("Webcam Image", image)
+# Create blank image for drawing.
+image = Image.new('1', (oled.width, oled.height))
 
-    # Make the image a numpy array and reshape it to the models input shape.
-    image = np.asarray(image, dtype=np.float32).reshape(1, 224, 224, 3)
+# Get drawing object to draw on image.
+draw = ImageDraw.Draw(image)
 
-    # Normalize the image array
-    image = (image / 127.5) - 1
+# Change the camera selection here
+camera = cv2.VideoCapture('/dev/video0')
+if not camera.isOpened():
+    print("Error: Could not open camera.")
+    exit()
 
-    # Predicts the model
-    prediction = model.predict(image)
-    index = np.argmax(prediction)
-    class_name = class_names[index]
-    confidence_score = prediction[0][index]
+try:
+    while True:
+        # Draw a black filled box to clear the image.
+        draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
 
-    # Print prediction and confidence score
-    print("Class:", class_name[2:], end="")
-    print("Confidence Score:", str(np.round(confidence_score * 100))[:-2], "%")
+        # Grab the camera's image.
+        ret, image_cam = camera.read()
 
-    # Listen to the keyboard for presses.
-    keyboard_input = cv2.waitKey(1)
+        if not ret:
+            print("Failed to grab image")
+            break
 
-    # 27 is the ASCII for the esc key on your keyboard.
-    if keyboard_input == 27:
-        break
+        # Resize the raw image into (224x224) pixels
+        image_resized = cv2.resize(image_cam, (224, 224), interpolation=cv2.INTER_AREA)
 
-camera.release()
-cv2.destroyAllWindows()
+        # Prepare the image for prediction
+        image_array = np.asarray(image_resized, dtype=np.float32)
+        image_array = (image_array / 127.5) - 1
+        image_array = np.expand_dims(image_array, axis=0)
+
+        # Predicts the model
+        prediction = model.predict(image_array)
+        index = np.argmax(prediction)
+        class_name = class_names[index]
+        confidence_score = prediction[0][index]
+
+        # Print prediction and confidence score to OLED
+        draw.text((0, 0), f"Status: {class_name}", font=font, fill=255)
+        # draw.text((0, 8), f"Confidence: {np.round(confidence_score * 100, 2)}%", font=font, fill=255)
+
+        # Display image.
+        oled.image(image)
+        oled.show()
+
+        time.sleep(0.5)  # Refresh rate
+
+except KeyboardInterrupt:
+    print("Program stopped by user")
+
+finally:
+    camera.release()
+    # Clear the display.
+    oled.fill(0)
+    oled.show()
+    print("Cleaned up and exited.")
