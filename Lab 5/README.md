@@ -247,3 +247,12 @@ https://drive.google.com/file/d/1dsAs4F7MjBKgOcybmGip9qj8R14dnYSH/view?usp=share
 https://drive.google.com/file/d/1jSBQGLXfM9FmcNAdjuEmpqtBh4voe7LB/view?usp=share_link
 
 **\*\*\*Include a short video demonstrating the finished result.\*\*\***
+
+
+**\*\*\*Process walkthrough\*\*\***
+Our project script does several things:
+
+- It runs a computer vision model and a camera that detects whether our house plant is healthy/unhealthy and displays the status on the OLED screen:
+- It uses a moisture sensor to detect moisture of the soil. If it detects less than 55% moisture, it triggers a servo that sprays water. Once the moisture percentage is above 55%, it deactivates the servo
+- It flips on a switch when the light sensor detects darkness
+- It flips off the switch when the light sensor detects light
