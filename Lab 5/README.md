@@ -218,8 +218,6 @@ During the lecture, we mentioned questions to help characterize a material:
 
 We could use our healthy/unhealthy houseplant checking system to check whether a plant needs watering. A good environment for this system is a simple environment without many external distractions. A bad enviroment is a place that has lots of unknown items and distracting features. Our houseplant system will break when the background is too distracting and we show it a species of houseplant that it was not trained on. When the system breaks it classifies the unhealthy plant as healthy and the healthy plant as unhealthy. 
 
-WIP: video to be uploaded 
-
 ### Part 2.
 
 Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
