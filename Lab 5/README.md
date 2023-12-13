@@ -218,8 +218,6 @@ During the lecture, we mentioned questions to help characterize a material:
 
 We could use our healthy/unhealthy houseplant checking system to check whether a plant needs watering. A good environment for this system is a simple environment without many external distractions. A bad enviroment is a place that has lots of unknown items and distracting features. Our houseplant system will break when the background is too distracting and we show it a species of houseplant that it was not trained on. When the system breaks it classifies the unhealthy plant as healthy and the healthy plant as unhealthy. 
 
-WIP: video to be uploaded 
-
 ### Part 2.
 
 Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
@@ -248,13 +246,34 @@ https://drive.google.com/file/d/1jSBQGLXfM9FmcNAdjuEmpqtBh4voe7LB/view?usp=share
 
 **\*\*\*Include a short video demonstrating the finished result.\*\*\***
 
+https://drive.google.com/file/d/1YD-hy1zl-Sb0TYCLaM_c_mz5QjZ87-uz/view?usp=sharing
 
 **\*\*\*Process walkthrough\*\*\***
 
 Our project script does several things:
 
-- It runs a computer vision model and a camera that detects whether our house plant is healthy/unhealthy and displays the status on the OLED screen:
-- It uses a moisture sensor to detect moisture of the soil. If it detects less than 55% moisture, it triggers a servo that sprays water. Once the moisture percentage is above 55%, it deactivates the servo
-- It flips on a switch when the light sensor detects darkness
-- It flips off the switch when the light sensor detects light
-- 
+1. It runs a computer vision model with camera dection to classify whether our house plant is healthy/unhealthy, and it displays the classification on the OLED screen.
+2. It utilizes a moisture sensor to detect moisture of the soil. If it detects less than 55% moisture, it triggers a servo that sprays water (indicating that the plant is lacking water). Once the moisture percentage is above 55%, it deactivates the servo indicating that the plant is not in need of moisture at the moment.
+3. It flips on a switch to turn on a light sensor when the LUX value is below 50, that is the threshold specified for indicating darkness. 
+4. It flips off the switch to turn off the light sensor when the LUX value is above 50, that is the threshold specified for indicating light.
+
+The 'final_run.py' script is a script combining all the moving parts of our project. It controls lighting and watering systems, utilizes computer vision for plant health monitoring, and displays the status on an OLED screen. 
+
+Here's a breakdown of its functions:
+
+- Hardware Interface: It manages hardware components including servos, a light sensor, a moisture sensor, and an OLED display via I2C and GPIO interfaces on a microcontroller platform like Raspberry Pi.
+
+- Servo Control: Two servos are configured to operate a light switch and a water spray mechanism.
+
+- Sensor Reading: It reads ambient light levels and soil moisture content to maintain appropriate growing conditions.
+
+- Computer Vision: The script uses a pre-trained machine learning model to analyze images from a camera and determine the health of the plant.
+
+- Display Output: Information about the plant's health is displayed on an OLED screen.
+
+- Main Operational Loop: The script runs in a continuous loop, adjusting the light and water spray based on sensor readings and updating the plant health status on the OLED display.
+
+The script is intended for an automated gardening system, ensuring plants receive optimal care with minimal human intervention.
+
+
+
