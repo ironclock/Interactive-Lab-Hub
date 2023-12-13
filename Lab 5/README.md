@@ -1,6 +1,17 @@
 # Observant Systems
 
-**Shai Aarons (sla88), Ariana Bhigroog (ab2959), Jon Caceres (jc3569), Rachel Minkowitz (rhm256), Amando Xu (ax45)**
+
+**COLLABORATORS:**
+
+**Shai Aarons (sla88)**
+
+**Ariana Bhigroog (ab2959)**
+
+**Jon Caceres (jc3569)**
+
+**Rachel Minkowitz (rhm256)**
+
+**Amando Xu (ax45)**
 
 
 For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture. 
